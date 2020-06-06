@@ -30,6 +30,7 @@ body {
 input {
     display: inline-block;
     margin: 10px;
+    background-color: rgb(199, 199, 199);
 }
 
 input[type=text] {
@@ -67,6 +68,16 @@ input[type=submit] {
     text-transform: uppercase;
     border-radius: 6px;
     display: inline-block;
+    transition: all 0.3s ease 0s;
+}
+
+.btn:hover {
+    color: #444444 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: rgb(104, 103, 103);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.3s ease 0s;
 }
 
