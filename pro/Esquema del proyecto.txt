@@ -1,0 +1,46 @@
+Creación de la cuenta en la pagina web.
+
+LOGIN.
+Verificación con la bbdd.
+Creación de personaje. 3 opción Mago Arquero Guerrero.
+
+SUPERCLASE PERSONJE
+Nick
+Vida
+mana
+ataque basico
+Experiencia 0-100%
+Nivel
+Inventario
+
+
+Clase Mago
+Clase Arquero
+Clase Guerrero
+
+
+Clase NPC hostiles
+Vida
+Nombre/id
+daño
+exp repartir
+
+Clase Mapas(int SelecciónMapaUsuario)
+nºrandom id monstruo a generar
+
+3 funciones de mapas distintos,
+mapa 1 Cueva araña gigante
+mapa 2 Bosque hombreLobo
+mapa 3 Castillo del Rey sin nombre
+
+
+
+
+EN LA PAGINA WEB
+Apartado de Mejores.
+Mayor level, mayor mapas superados...
+Creación de cuenta
+Presentación del Staff
+preguntas frecuentes
+Promociones
+Servidor de correo para verificación de personaje???
