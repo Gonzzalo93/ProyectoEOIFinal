@@ -1,60 +1,66 @@
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-
-
-body, html {
+body,
+html {
     height: 100%;
-  }
-  
-  * {
+}
+
+* {
     box-sizing: border-box;
-  }
-  
-  .bg-img {
+}
+
+.bg-img {
     /* The image used */
-    background-image: url("1080.jpeg");
-  
+    background-image: url("imagenes/1080.jpeg");
     /* Control the height of the image */
     min-height: 1080px;
-  
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-  }
-  
-  /* Add styles to the form container */
-  .container {
+}
+
+
+/* Add styles to the form container */
+
+.container {
     position: absolute;
     right: 0;
     margin: 20px;
     max-width: 300px;
     padding: 16px;
-    background-image: url("lmao.png");
-    
-  }
-  
-  /* Full-width input fields */
-    input[type=text], input[type=password] {
+    background-image: url("imagenes/lmao.png");
+    /* Hay que cambiar esta imagen xd*/
+}
+
+
+/* Full-width input fields */
+
+input[type=text],
+input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
     background: #f1f1f1;
-  }
-  
-  input[type=text]:focus, input[type=password]:focus {
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
     background-color: #ddd;
     outline: none;
-  }
-  
-  /* Set a style for the submit button */
-  .btn {
+}
+
+
+/* Set a style for the submit button */
+
+.btn {
     background-color: rgb(230, 85, 2);
     color: white;
     padding: 16px 20px;
@@ -62,19 +68,19 @@ body, html {
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
-  }
-  
-  .btn:hover {
+}
+
+.btn:hover {
     opacity: 1;
-  }
+}
 
-
-  .menuCSS3 ul {
+.menuCSS3 ul {
     display: flex;
     padding: 0;
     margin: 0;
     list-style: none;
 }
+
 .menuCSS3 a {
     display: block;
     padding: 2em;
@@ -82,12 +88,16 @@ body, html {
     text-decoration: none;
     color: #191C26;
 }
+
 .menuCSS3 a:hover {
     background-color: #CC673B;
 }
+
 .menuCSS3 ul li ul {
     display: none;
 }
-.menuCSS3 ul li a:hover + ul, .menuCSS3 ul li ul:hover {
+
+.menuCSS3 ul li a:hover+ul,
+.menuCSS3 ul li ul:hover {
     display: block;
 }

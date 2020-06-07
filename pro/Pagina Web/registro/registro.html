@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="cssregistro.css">
+    <link rel="stylesheet" href="RegistroCss.css">
     <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
@@ -19,28 +19,43 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<body>
-    <div class="fondo">
+<body class="fondo">
+    <!--Estaba en 250px-->
+    <div id="Registercontainer" style="margin-left:auto;margin-right:auto;width:350px">
 
-        <form class="formulario" action="URL" method="POST">
+        <div class="RegForm">
+            <h1> Crear una cuenta</h1>
 
-            <label for="fname">Nombre de Usuario:</label><br>
-            <input type="text" id="fname" name="usuario"><br>
-            <label for="lname">Contraseña:</label><br>
-            <input type="password" id="lname" name="contraseña"><br>
-            <label for="fname">Dirección de Correo:</label><br>
-            <input type="email" id="correo" name="email"><br>
-            <label for="fname">He leido las condiciones de uso que no existen:</label><br>
-            <input type="checkbox" id=" caja " name="caja "><br>
-            <button class="boton " type="submit " class="btn ">Registro</button>
+            <div id="back_glob">
 
-        </form>
+                <div id="back_form">
+                    <form method="POST">
+                        <label>Nombre Usuario</label>
+                        <input type="text" placeholder="Introduce tu nombre" name="FName" />
+                        <br/>
+                        <label>Contraseña</label>
+                        <input type="password" placeholder="Introduce tu contraseña" name="SNAME" />
+                        <br/>
+                        <label>Dirección de Correo</label>
+                        <input id="email" type="email" placeholder="Introduce tu correo" name="email" />
+
+                        <input class="btn" type="submit" value="Registrarse" /><br/>
+
+                </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
     </div>
 </body>
 
