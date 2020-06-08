@@ -99,5 +99,5 @@ input[type=submit] {
     border-radius: 7%;
     margin-top: 100px;
     padding: 30px;
-    background-color: rgb(228, 196, 166);
+    background: rgba(255, 255, 255, 0.3);
 }
