@@ -100,4 +100,7 @@ input[type=submit] {
     margin-top: 100px;
     padding: 30px;
     background: rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow:-8px 8px 5px 0px #272727;
+    -moz-box-shadow: -8px 8px 5px 0px #272727;
+    box-shadow:-8px 8px 5px 0px #272727;
 }
