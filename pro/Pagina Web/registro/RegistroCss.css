@@ -82,7 +82,7 @@ input[type=submit] {
     padding: 20px;
     border: 2px solid #000000 !important;
     display: inline-block;
-    transition: all 0.9s ease 0s;
+    transition: all 0.9s linear 0s;
     position: relative;
     left: 60px;
 }
@@ -91,7 +91,7 @@ input[type=submit] {
     color: #ff0000 !important;
     background: #000000;
     border-color: #ca0e0e !important;
-    transition: all 0.4s ease 0s;
+    transition: all 0.4s linear 0s;
 }
 
 .RegForm {
