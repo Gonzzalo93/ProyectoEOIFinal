@@ -101,7 +101,7 @@ input[type=submit] {
     transition: all 0.4s ease 0s;
     -webkit-box-shadow: inset 0px 0px 15px #afabab;
     -moz-box-shadow: inset 0px 0px 15px #afabab;
-    b box-shadow: inset 0px 0px 15px #afabab;
+    box-shadow: inset 0px 0px 15px #afabab;
 }
 
 .RegForm {
