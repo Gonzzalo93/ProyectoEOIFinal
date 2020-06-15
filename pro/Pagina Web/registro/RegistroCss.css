@@ -5,6 +5,41 @@ body {
     padding: 0;
 }
 
+
+/*MENU CSS copiado del webase*/
+
+.menuCSS3 ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+}
+
+.menuCSS3 a {
+    display: block;
+    padding: 2em;
+    background-color: #F9B53C;
+    text-decoration: none;
+    color: #191C26;
+}
+
+.menuCSS3 a:hover {
+    background-color: #CC673B;
+}
+
+.menuCSS3 ul li ul {
+    display: none;
+}
+
+.menuCSS3 ul li a:hover+ul,
+.menuCSS3 ul li ul:hover {
+    display: block;
+}
+
+
+/*FIN COPIADO*/
+
 .fondo {
     background-image: url("fondo.jpg");
     position: fixed;
@@ -16,26 +51,28 @@ body {
 }
 
 #Regcontainer {
-    width: 1200px;
-    margin: 70px auto;
-    border: 1px solid;
+    width: 1200em;
+    position: relative;
+    margin: 70em auto;
+    border: 1em solid;
     background-color: aliceblue;
     top: 0;
 }
 
 .Regcontainer h1 {
     font-size: 40px;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Caveat', ;
     color: black;
     line-height: 1;
-    padding-left: 35px;
-    padding-top: 35px;
+    padding-left: 35em;
+    padding-top: 35em;
     color: black;
 }
 
 input {
     display: inline-block;
     margin: 10px;
+    width: 80%;
     background-color: rgb(199, 199, 199);
 }
 
@@ -79,12 +116,13 @@ input[type=submit] {
     text-transform: uppercase;
     text-decoration: none;
     background: #ffffff;
-    padding: 20px;
+    padding: 20em;
     border: 2px solid #000000 !important;
     display: inline-block;
     transition: all 0.9s linear 0s;
-    position: relative;
-    left: 60px;
+    position: static;
+    width: 100%;
+    /*He quitado el Left 60 y lo he puesto static PD: miguel*/
 }
 
 .btn:hover {
