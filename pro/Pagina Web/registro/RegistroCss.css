@@ -14,6 +14,7 @@ body {
     margin: 0;
     list-style: none;
     position: absolute;
+    transition: all 2s ease 0s;
 }
 
 .menuCSS3 a {
@@ -22,10 +23,12 @@ body {
     background-color: #F9B53C;
     text-decoration: none;
     color: #191C26;
+    transition: all 2s ease 0s;
 }
 
 .menuCSS3 a:hover {
     background-color: #CC673B;
+    transition: all 2s ease 0s;
 }
 
 .menuCSS3 ul li ul {

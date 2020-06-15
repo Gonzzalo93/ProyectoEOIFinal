@@ -1,0 +1,158 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("imagenes/drizztfondo.jpg");
+    /* Control the height of the image */
+    min-height: 1080px;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 200px rgba(0, 0, 0, 0.9) inset;
+}
+
+
+/* Add styles to the form container */
+
+.container {
+    position: absolute;
+    right: 0;
+    top: 30;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    border-radius: 2em;
+    -webkit-box-shadow: 0px 0px 7px 5px #272727;
+    -moz-box-shadow: 0px 0px 7px 5px #272727;
+    box-shadow: 0px 0px 7px 5px #272727;
+    background-color: rgb(243, 240, 240, 0.3);
+}
+
+
+/* Full-width input fields */
+
+input[type=text],
+input[type=password] {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: #CC673B solid 0.2em;
+    background: #f1f1f1;
+    transition: all 1s ease 0s;
+    /* transition: 1s; */
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    border-radius: 0.1em;
+    transition: border 0.4s ease 0s;
+}
+
+
+/* Set a style for the submit button */
+
+.btn {
+    background-color: rgb(230, 85, 2);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.menuCSS3 ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.menuCSS3 a {
+    display: block;
+    padding: 2em;
+    background-color: #F9B53C;
+    text-decoration: none;
+    color: #191C26;
+}
+
+.menuCSS3 a:hover {
+    background-color: #CC673B;
+}
+
+.menuCSS3 ul li ul {
+    display: none;
+}
+
+.menuCSS3 ul li a:hover+ul,
+.menuCSS3 ul li ul:hover {
+    display: block;
+}
+
+
+/* contenido*/
+
+.main {
+    position: relative;
+    text-align: center;
+    margin-top: 15em;
+    left: 15em;
+    max-width: 700px;
+    background-color: rgb(243, 240, 240, 0.3);
+    border-radius: 7.5%;
+    border: 7px solid black;
+}
+
+hr {
+    background-color: #ddd;
+}
+
+.bloques {
+    background-image: url("strikerr.jpg");
+    border-style: solid 2px;
+    border-bottom-left-radius: 10px;
+    color: #faf2f2;
+    max-width: 590px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid black;
+    background-color: rgba(14, 12, 12, 0.3);
+}
+
+.bloqueSombra {
+    border-left-width: 10px;
+    border-bottom-width: 10px;
+}
+
+.titulos {
+    font-size: 2em;
+    line-height: 1, 5;
+    color: rgb(0, 0, 0)
+}
