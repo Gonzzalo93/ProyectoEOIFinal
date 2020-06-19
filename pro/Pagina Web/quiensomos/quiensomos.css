@@ -24,7 +24,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -93,6 +93,8 @@ input[type=password]:focus {
     padding: 0;
     margin: 0;
     list-style: none;
+    position: absolute;
+    transition: all 2s ease 0s;
 }
 
 .menuCSS3 a {
@@ -101,10 +103,12 @@ input[type=password]:focus {
     background-color: #F9B53C;
     text-decoration: none;
     color: #191C26;
+    transition: all 2s ease 0s;
 }
 
 .menuCSS3 a:hover {
     background-color: #CC673B;
+    transition: all 2s ease 0s;
 }
 
 .menuCSS3 ul li ul {
@@ -120,10 +124,10 @@ input[type=password]:focus {
 /* contenido*/
 
 .main {
-    position: relative;
+    position: absolute;
     text-align: center;
     margin-top: 15em;
-    left: 15em;
+    left: 35em;
     max-width: 700px;
     background-color: rgb(243, 240, 240, 0.3);
     border-radius: 7.5%;
@@ -135,7 +139,6 @@ hr {
 }
 
 .bloques {
-    background-image: url("strikerr.jpg");
     border-style: solid 2px;
     border-bottom-left-radius: 10px;
     color: #faf2f2;
