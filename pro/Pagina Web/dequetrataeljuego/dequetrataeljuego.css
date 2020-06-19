@@ -138,7 +138,7 @@ input[type=password]:focus {
 
 .main {
     position: relative;
-    margin-top: 20em;
+    margin-top: 15em;
     left: 35em;
     max-width: 900px;
     background-color: rgb(243, 240, 240, 0.3);
