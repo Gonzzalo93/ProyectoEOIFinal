@@ -25,6 +25,10 @@ Nombre/id
 daño
 exp repartir
 
+Añadir inventario de objetos
+Clase padre Objetos y de clase hija los tipos de objetos, ej: objeto armadura, objeto arma...
+
+
 Clase Mapas(int SelecciónMapaUsuario)
 nºrandom id monstruo a generar
 
@@ -44,3 +48,4 @@ Presentación del Staff
 preguntas frecuentes
 Promociones
 Servidor de correo para verificación de personaje???
+
