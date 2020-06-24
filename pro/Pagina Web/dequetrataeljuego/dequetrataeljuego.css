@@ -7,15 +7,6 @@ body {
     background-color: black;
 }
 
-body,
-html {
-    height: 100%;
-}
-
-* {
-    box-sizing: border-box;
-}
-
 .bg-img {
     /* The image used */
     background-image: url("imagenes/drizztfondo.jpg");
