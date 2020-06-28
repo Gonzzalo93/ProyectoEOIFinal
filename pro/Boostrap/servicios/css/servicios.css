@@ -1,0 +1,28 @@
+.nav-linkred {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: red;
+}
+
+.nav-linkred:hover,
+.nav-linkred:focus {
+    text-decoration: none;
+    color: rgb(122, 7, 7);
+}
+
+.nav-linkred.disabled {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: default;
+}
+
+.nav-pills .nav-linkred {
+    border-radius: 0.25rem;
+    color: red;
+}
+
+.nav-pills .nav-linkred.active,
+.nav-pills .show>.nav-linkred {
+    color: #fff;
+    background-color: #bd2424;
+}
