@@ -4466,7 +4466,6 @@ input[type=button].btn-block {
     padding-top: 0.3125rem;
     padding-bottom: 0.3125rem;
     margin-right: 1rem;
-    font-size: 1.25rem;
     line-height: inherit;
     white-space: nowrap;
 }
@@ -10499,6 +10498,29 @@ body {
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+}
+
+.creadores {
+    margin: 20px;
+    font-style: oblique;
+    font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    font-size: 60px;
+    font: color="#d6dbdb";
+}
+
+.edd {
+    width: 180px;
+    height: 150;
+    -webkit-mask-image: linear-gradient(to bottom, #000000 0%, rgba(0, 0, 0, 0.1) 85%, rgba(0, 0, 0, 0.3) 100%), linear-gradient(to top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.25) 85%, #000000 100%), linear-gradient(to left, #000000 0%, rgba(0, 0, 0, 0.1) 85%, rgba(0, 0, 0, 0.3) 100%), linear-gradient(to right, #000000 0%, rgba(0, 0, 0, 0.1) 85%, rgba(0, 0, 0, 0.3) 100%);
+    border-radius: 100%;
+    margin: 20px;
+}
+
+.nombres {
+    font-style: oblique;
+    font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: lavender;
 }
 
 .signup-section .form-inline input {
