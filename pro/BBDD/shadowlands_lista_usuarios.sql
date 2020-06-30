@@ -16,6 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `consultas`
+--
+
+DROP TABLE IF EXISTS `consultas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `consultas` (
+  `cuentas_idCuentas` int NOT NULL,
+  `cuentas_Nick` varchar(45) NOT NULL,
+  `idConsultas` int NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(45) NOT NULL,
+  `Categoria` varchar(45) NOT NULL,
+  `Comentarios` varchar(300) NOT NULL,
+  `Estado` varchar(45) NOT NULL,
+  PRIMARY KEY (`idConsultas`),
+  KEY `fk_Consultas_cuentas1_idx` (`cuentas_idCuentas`,`cuentas_Nick`),
+  CONSTRAINT `fk_Consultas_cuentas1` FOREIGN KEY (`cuentas_idCuentas`, `cuentas_Nick`) REFERENCES `cuentas` (`idCuentas`, `Nick`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `consultas`
+--
+
+LOCK TABLES `consultas` WRITE;
+/*!40000 ALTER TABLE `consultas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `consultas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cuentas`
 --
 
@@ -31,7 +61,7 @@ CREATE TABLE `cuentas` (
   `Nacimiento` date NOT NULL,
   `TipoCuenta` varchar(45) NOT NULL,
   PRIMARY KEY (`idCuentas`,`Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +70,7 @@ CREATE TABLE `cuentas` (
 
 LOCK TABLES `cuentas` WRITE;
 /*!40000 ALTER TABLE `cuentas` DISABLE KEYS */;
+INSERT INTO `cuentas` VALUES (1,'Drizzt','elcapo12','Alicante','España','1998-08-15','GameMaster');
 /*!40000 ALTER TABLE `cuentas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,16 +82,17 @@ DROP TABLE IF EXISTS `inventario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `inventario` (
+  `personajes_idPersonajes` int NOT NULL,
+  `personajes_Nombre` varchar(45) NOT NULL,
   `idTienda` int NOT NULL,
-  `Personajes_idPersonajes` int NOT NULL,
   `NombreObjeto` varchar(45) NOT NULL,
   `DmgExtra` int NOT NULL,
   `DefExtra` int DEFAULT NULL,
   `SaludExtra` int NOT NULL,
   `Cantidad` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idTienda`),
-  KEY `fk_Inventario_Personajes1_idx` (`Personajes_idPersonajes`),
-  CONSTRAINT `fk_Inventario_Personajes1` FOREIGN KEY (`Personajes_idPersonajes`) REFERENCES `personajes` (`idPersonajes`)
+  PRIMARY KEY (`idTienda`,`NombreObjeto`),
+  KEY `fk_inventario_personajes1_idx` (`personajes_idPersonajes`,`personajes_Nombre`),
+  CONSTRAINT `fk_inventario_personajes1` FOREIGN KEY (`personajes_idPersonajes`, `personajes_Nombre`) REFERENCES `personajes` (`idPersonajes`, `Nombre`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -81,21 +113,22 @@ DROP TABLE IF EXISTS `personajes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `personajes` (
+  `cuentas_idCuentas` int NOT NULL,
+  `cuentas_Nick` varchar(45) NOT NULL,
   `idPersonajes` int NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(45) NOT NULL,
+  `Nivel` int NOT NULL,
   `Clase` varchar(45) NOT NULL,
-  `Inventario` varchar(45) DEFAULT NULL,
+  `Dmg` int NOT NULL,
+  `Hp` int NOT NULL,
+  `Experiencia` varchar(45) NOT NULL,
   `Dinero` int DEFAULT NULL,
   `ArmaEquipada` varchar(45) DEFAULT NULL,
-  `Experiencia` varchar(45) DEFAULT NULL,
-  `ExpRequerida` varchar(45) NOT NULL,
-  `Cuentas_idCuentas` int NOT NULL,
-  `Cuentas_Nick` varchar(45) NOT NULL,
-  PRIMARY KEY (`idPersonajes`),
+  PRIMARY KEY (`idPersonajes`,`Nombre`),
   UNIQUE KEY `Nombre_UNIQUE` (`Nombre`),
-  KEY `fk_Personajes_Cuentas_idx` (`Cuentas_idCuentas`,`Cuentas_Nick`),
-  CONSTRAINT `fk_Personajes_Cuentas` FOREIGN KEY (`Cuentas_idCuentas`, `Cuentas_Nick`) REFERENCES `cuentas` (`idCuentas`, `Nick`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_personajes_cuentas1_idx` (`cuentas_idCuentas`,`cuentas_Nick`),
+  CONSTRAINT `fk_personajes_cuentas1` FOREIGN KEY (`cuentas_idCuentas`, `cuentas_Nick`) REFERENCES `cuentas` (`idCuentas`, `Nick`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,6 +137,7 @@ CREATE TABLE `personajes` (
 
 LOCK TABLES `personajes` WRITE;
 /*!40000 ALTER TABLE `personajes` DISABLE KEYS */;
+INSERT INTO `personajes` VALUES (1,'Drizzt',1,'LionHit',1,'Guerrero',8,300,'0',NULL,NULL);
 /*!40000 ALTER TABLE `personajes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -116,4 +150,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-26 18:23:39
+-- Dump completed on 2020-06-30 12:13:00
