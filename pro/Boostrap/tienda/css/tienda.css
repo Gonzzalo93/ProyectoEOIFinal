@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     background-image: url("../imagenes/fondo.png");
 }
@@ -36,83 +35,4 @@ td {
     padding-top: 20px;
     padding-right: 60px;
     border: 1px solid;
-=======
-<<<<<<< HEAD
-body {
-    background-image: url("../imagenes/fondo.png");
-}
-
-td {
-    line-height: 10;
-}
-
-.txt {
-    color: #4d94ff;
-}
-
-.tier1 {
-    color: #00cc00;
-}
-
-.tier2 {
-    color: #0099ff;
-}
-
-.tier3 {
-    color: #cc33ff;
-}
-
-.tier4 {
-    color: #ff8c1a;
-}
-
-.tier5 {
-    color: #ff3300;
-}
-
-.ajustar {
-    width: 6%;
-    padding-top: 20px;
-    padding-right: 60px;
-    border: 1px solid;
-=======
-body {
-    background-image: url("../imagenes/fondo.png");
-}
-
-td {
-    line-height: 10;
-}
-
-.txt {
-    color: #4d94ff;
-}
-
-.tier1 {
-    color: #00cc00;
-}
-
-.tier2 {
-    color: #0099ff;
-}
-
-.tier3 {
-    color: #cc33ff;
-}
-
-.tier4 {
-    color: #ff8c1a;
-}
-
-.tier5 {
-    color: #ff3300;
-}
-
-.ajustar {
-    width: 6%;
-    padding-top: 20px;
-    padding-right: 60px;
-    border: 1px solid;
->>>>>>> bba955bf72f9d28c0da25d0f8a2a67bc57b605cf
->>>>>>> master
 }
