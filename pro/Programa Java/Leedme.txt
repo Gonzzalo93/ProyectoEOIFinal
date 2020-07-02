@@ -1,0 +1,2 @@
+Esto va en SourcePackage (la carpeta tiene el nombre java en el explorador de archivos)de un proyecto Java Application.
+Es la carpeta que contiene todos los paquetes con las clases java.
