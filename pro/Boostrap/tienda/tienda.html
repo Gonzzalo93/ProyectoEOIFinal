@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../css/bootstrap.css" rel="stylesheet" />
     <link href="css/tienda.css" rel="stylesheet" />
+    <script src="js/tienda.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
@@ -17,9 +18,13 @@
 </head>
 
 <body>
-    <div class="p-3 mb-2 bg-primary text-white">Tienda
+    <div class="p-3 mb-2 bg-primary text-white div1">Tienda
         <h1>Elige tu tipo de Arma</h1>
-        <a href="#espadas">
+
+
+    </div>
+    <div class="col-md-auto div2">
+        <a href="#espada">
             <img class="ajustar" src="imagenes/sword.png"></a>
         <a href="#arcos">
             <img class="ajustar" src="imagenes/bow.png"></a>
@@ -27,6 +32,8 @@
             <img class="ajustar" src="imagenes/witch.png"></a>
     </div>
     <div class="container">
+
+
         <table class="table table-striped table-dark">
             <thead>
                 <tr>
@@ -37,9 +44,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr id="espada">
 
-                    <section id="espadas"></section>
+
                     <td><img src="imagenes/espada1.png"></td>
                     <td class="tier1">Espada de Madera: +4 daño +4% Probabilidad de Crítico </td>
                     <td><button type="button" class="btn btn-warning txt">Comprar (1.000g)</button></td>
@@ -68,8 +75,8 @@
                     <td class="tier5">Sangre Nocturna: +32 daño +40% Probabilidad de Crítico</td>
                     <td><button type="button" class="btn btn-warning txt">Comprar (10.000g)</button></td>
                 </tr>
-                <tr>
-                    <section id="arcos"></section>
+                <tr id="arcos">
+
                     <td><img src="imagenes/arco1.png"></td>
                     <td class="tier1">Arco de práctica: +4 daño +6% Probabilidad de Crítico</td>
                     <td><button type="button" class="btn btn-warning txt">Comprar (900g)</button></td>
@@ -99,8 +106,8 @@
                     <td><button type="button" class="btn btn-warning txt">Comprar (12.000g)</button></td>
                 </tr>
 
-                <tr>
-                    <section id="varitas"></section>
+                <tr id="varitas">
+
                     <td><img src="imagenes/vara1.png"></td>
                     <td class="tier1">Varita de Principiante: +7 daño</td>
                     <td><button type="button" class="btn btn-warning txt">Comprar (1.100g)</button></td>
@@ -133,6 +140,7 @@
         </table>
 
     </div>
+    <button onclick="topFunction()" id="myBtn" title="Go to top"> 	  &#129045 </button>
 </body>
 
 </html>
