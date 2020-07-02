@@ -55,15 +55,13 @@ DROP TABLE IF EXISTS `cuentas`;
 CREATE TABLE `cuentas` (
   `idCuentas` int NOT NULL AUTO_INCREMENT,
   `Nick` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
   `Direccion` varchar(45) NOT NULL,
   `Pais` varchar(45) NOT NULL,
   `Nacimiento` date NOT NULL,
-  `TipoCuenta` varchar(45) DEFAULT 'Normal',
-  PRIMARY KEY (`idCuentas`,`Nick`),
-  UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `TipoCuenta` varchar(45) NOT NULL,
+  PRIMARY KEY (`idCuentas`,`Nick`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,7 +70,7 @@ CREATE TABLE `cuentas` (
 
 LOCK TABLES `cuentas` WRITE;
 /*!40000 ALTER TABLE `cuentas` DISABLE KEYS */;
-INSERT INTO `cuentas` VALUES (1,'Drizzt','miguel_mgarrido@hotmail.com','elcapo12','Alicante','España','1998-08-15','GameMaster'),(2,'Prueba','mago@hotmail.com','Cacapedo98','Avenida Ancha de Castelar 108, 2Âº izq','España','1998-08-15','Normal'),(3,'Chocoleito','santymmr@hotmail.com','Santimmr96','Novelda','España','1996-10-11','Normal');
+INSERT INTO `cuentas` VALUES (1,'Drizzt','elcapo12','Alicante','España','1998-08-15','GameMaster');
 /*!40000 ALTER TABLE `cuentas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,6 +106,31 @@ LOCK TABLES `inventario` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `lista_usuarios`
+--
+
+DROP TABLE IF EXISTS `lista_usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lista_usuarios` (
+  `id_Usuarios` int NOT NULL AUTO_INCREMENT,
+  `Usuario` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_Usuarios`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lista_usuarios`
+--
+
+LOCK TABLES `lista_usuarios` WRITE;
+/*!40000 ALTER TABLE `lista_usuarios` DISABLE KEYS */;
+INSERT INTO `lista_usuarios` VALUES (1,'Drizzt','Admin1234'),(2,'Santymmr','Pray4Shai');
+/*!40000 ALTER TABLE `lista_usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `personajes`
 --
 
@@ -119,15 +142,13 @@ CREATE TABLE `personajes` (
   `cuentas_Nick` varchar(45) NOT NULL,
   `idPersonajes` int NOT NULL AUTO_INCREMENT,
   `Nombre` varchar(45) NOT NULL,
-  `Nivel` int NOT NULL DEFAULT '1',
+  `Nivel` int NOT NULL,
   `Clase` varchar(45) NOT NULL,
   `Dmg` int NOT NULL,
-  `CritDmg` int DEFAULT '0',
-  `Def` int NOT NULL,
   `Hp` int NOT NULL,
-  `Experiencia` int DEFAULT '0',
-  `Dinero` int DEFAULT '0',
-  `ArmaEquipada` varchar(45) DEFAULT 'Nada',
+  `Experiencia` varchar(45) NOT NULL,
+  `Dinero` int DEFAULT NULL,
+  `ArmaEquipada` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPersonajes`,`Nombre`),
   UNIQUE KEY `Nombre_UNIQUE` (`Nombre`),
   KEY `fk_personajes_cuentas1_idx` (`cuentas_idCuentas`,`cuentas_Nick`),
@@ -141,7 +162,7 @@ CREATE TABLE `personajes` (
 
 LOCK TABLES `personajes` WRITE;
 /*!40000 ALTER TABLE `personajes` DISABLE KEYS */;
-INSERT INTO `personajes` VALUES (1,'Drizzt',1,'LionHit',4,'Guerrero',8,0,13,300,360,NULL,'Nada'),(2,'Prueba',1,'Pruebita',4,'Arquero',24,0,21,131,240,NULL,'Arco de practica');
+INSERT INTO `personajes` VALUES (1,'Drizzt',1,'LionHit',1,'Guerrero',8,300,'0',NULL,NULL);
 /*!40000 ALTER TABLE `personajes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -154,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-02 18:19:40
+-- Dump completed on 2020-07-02 19:05:46

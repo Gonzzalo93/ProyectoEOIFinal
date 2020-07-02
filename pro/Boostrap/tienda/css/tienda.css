@@ -40,7 +40,12 @@ html {
     padding-right: 20px;
     padding-bottom: 30px;
     padding-left: 20px;
+    margin-left: 390px;
     /* border: 1px solid; */
+}
+
+.ajustar:hover {
+    border: solid 5 px white;
 }
 
 #myBtn {
@@ -64,7 +69,7 @@ html {
     /* Text color */
     cursor: pointer;
     /* Add a mouse pointer on hover */
-    padding: 10px 10px 13px 13px;
+    padding: 25px 25px 20px 20px;
     /* Some padding */
     border-radius: 10px;
     /* Rounded corners */
@@ -79,6 +84,7 @@ html {
 
 .div2 {
     background-color: rosybrown;
+    opacity: 30%;
     color: rgb(65, 225, 73);
     align-items: center;
     margin-bottom: 25px;

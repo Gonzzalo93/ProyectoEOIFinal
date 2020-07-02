@@ -43,12 +43,3 @@ function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-
-
-
-function mostrar() {
-    if (document.getElementById("displaytable").style.display === "none")
-        document.getElementById("displaytable").style.display = "block";
-    else
-        document.getElementById("displaytable").style.display = "none";
-}
