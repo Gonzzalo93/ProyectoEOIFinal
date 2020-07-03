@@ -11,7 +11,7 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
-particlesJS('particles-js', 'particlesjs-config.json',
+particlesJS('particles-js',
 
     {
         "particles": {
@@ -61,7 +61,7 @@ particlesJS('particles-js', 'particlesjs-config.json',
                 }
             },
             "line_linked": {
-                "enable": true,
+                "enable": false,
                 "distance": 150,
                 "color": "#ffffff",
                 "opacity": 0.4,
@@ -69,11 +69,12 @@ particlesJS('particles-js', 'particlesjs-config.json',
             },
             "move": {
                 "enable": true,
-                "speed": 6,
+                "speed": 1.5,
                 "direction": "none",
                 "random": false,
                 "straight": false,
                 "out_mode": "out",
+                "bounce": false,
                 "attract": {
                     "enable": false,
                     "rotateX": 600,
@@ -85,7 +86,7 @@ particlesJS('particles-js', 'particlesjs-config.json',
             "detect_on": "canvas",
             "events": {
                 "onhover": {
-                    "enable": true,
+                    "enable": false,
                     "mode": "repulse"
                 },
                 "onclick": {
@@ -109,7 +110,8 @@ particlesJS('particles-js', 'particlesjs-config.json',
                     "speed": 3
                 },
                 "repulse": {
-                    "distance": 200
+                    "distance": 200,
+                    "duration": 0.4
                 },
                 "push": {
                     "particles_nb": 4
@@ -119,15 +121,6 @@ particlesJS('particles-js', 'particlesjs-config.json',
                 }
             }
         },
-        "retina_detect": true,
-        "config_demo": {
-            "hide_card": false,
-            "background_color": "#b61924",
-            "background_image": "",
-            "background_position": "50% 50%",
-            "background_repeat": "no-repeat",
-            "background_size": "cover"
-        }
+        "retina_detect": true
     }
-
 );

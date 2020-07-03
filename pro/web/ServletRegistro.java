@@ -28,9 +28,9 @@ public class ServletRegistro extends HttpServlet{
             String pais = request.getParameter("pais");
             ConexionSQL gestion = new ConexionSQL();
             if(gestion.createUsuario(usuario, password, email, pais, fnacimiento, direccion)){
-               response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/login/login.html");
+                System.out.println("bien");
             }else{
-                response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/registro/registro.html");
+                System.out.println("mal");
             }
         }
         

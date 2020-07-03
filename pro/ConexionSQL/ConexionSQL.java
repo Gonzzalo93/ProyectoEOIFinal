@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,7 +21,7 @@ public class ConexionSQL {
      private Connection getConnection() throws SQLException {
          String url = "jdbc:mysql://localhost:3306/shadowlands?useSSL=false&serverTimezone=UTC";
             String user = "root";
-            String pass = "Admin1234";
+            String pass = "4321";
              try{
                     Class.forName("com.mysql.cj.jdbc.Driver");
                 } catch (ClassNotFoundException ex) {
@@ -67,7 +69,7 @@ public class ConexionSQL {
     }
       public boolean createUsuario(String usuario, String password, String correo, String pais, String fnacimiento, String direccion) {
 
-	String insertQuery = "INSERT INTO cuentas(Nick, Email, Password, Direccion, Pais, Nacimiento) VALUES (?, ?, ?, ?, ?, ?)";
+	String insertQuery = "INSERT INTO cuentas(Nick, Email, Password, Direccion, Pais, Nacimiento, TipoCuenta) VALUES (?, ?, ?, ?, ?, ?, player)";
 	Connection con = null;
 	PreparedStatement stmt = null;
 	int rows = 0;
@@ -97,4 +99,59 @@ public class ConexionSQL {
         }
             
     }
+      
+      public boolean nuevoNombre(String nombre) {
+         try {
+             String insertQuery = "UPDATE personajes SET Nombre = ? WHERE Nombre = 'bob'"; /* en test habrá que cojer el nombre del login antiguo*/
+                     
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, nombre);
+              System.out.println("Ejecutando la query: " + insertQuery);
+				
+		rows = stmt.executeUpdate();
+                System.out.println("Registros afectados: " + rows);
+				
+		stmt.close();
+                con.close();
+				
+		return true;
+         } catch (SQLException ex) {
+             Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+         }
+      }
+      
+      public boolean cambioPassword(String password) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Password = ? WHERE Password = 'test123'";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, password);
+             System.out.println("Ejecutando la query: " + insertQuery);
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+             Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+             return false;
+         }
+      }
+      
+      
+      
 }
