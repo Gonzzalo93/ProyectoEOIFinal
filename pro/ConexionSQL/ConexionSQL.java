@@ -67,7 +67,7 @@ public class ConexionSQL {
     }
       public boolean createUsuario(String usuario, String password, String correo, String pais, String fnacimiento, String direccion) {
 
-	String insertQuery = "INSERT INTO cuentas(Nick, Email, Password, Direccion, Pais, Nacimiento, TipoCuenta) VALUES (?, ?, ?, ?, ?, ?, player)";
+	String insertQuery = "INSERT INTO cuentas(Nick, Email, Password, Direccion, Pais, Nacimiento) VALUES (?, ?, ?, ?, ?, ?)";
 	Connection con = null;
 	PreparedStatement stmt = null;
 	int rows = 0;

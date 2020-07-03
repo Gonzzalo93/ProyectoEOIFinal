@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
     <link rel="manifest" href="../favicon/site.webmanifest">
-    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
@@ -42,13 +42,13 @@
 </head>
 
 <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" action="../crearpersonaje/crearpersonaje.jsp" method="post">
         <img class="mb-4" src="../favicon/chibia2.png" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Iniciar Sesión</h1>
-        <label for="inputEmail" class="sr-only" name="usuario">Nombre de Usuario</label>
-        <input type="email" id="inputEmail" class="form-control" name="password" placeholder="Usuario" required autofocus>
+        <label for="inputEmail" class="sr-only" >Nombre de Usuario</label>
+        <input type="text" id="inputEmail" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
         <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+        <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Contraseña" required>
         <div class="checkbox mb-3">
             <label>
       <input type="checkbox" value="remember-me"> Recordarme

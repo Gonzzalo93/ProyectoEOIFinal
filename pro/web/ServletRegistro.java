@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author migue
  */
-@WebServlet("ServletRegistro")
+@WebServlet("/ServletRegistro")
 public class ServletRegistro extends HttpServlet{
     @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
@@ -28,9 +28,9 @@ public class ServletRegistro extends HttpServlet{
             String pais = request.getParameter("pais");
             ConexionSQL gestion = new ConexionSQL();
             if(gestion.createUsuario(usuario, password, email, pais, fnacimiento, direccion)){
-                System.out.println("bien");
+               response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/login/login.html");
             }else{
-                System.out.println("mal");
+                response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/registro/registro.html");
             }
         }
         
