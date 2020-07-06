@@ -63,7 +63,7 @@ CREATE TABLE `cuentas` (
   `TipoCuenta` varchar(45) DEFAULT 'Normal',
   PRIMARY KEY (`idCuentas`,`Nick`),
   UNIQUE KEY `Email_UNIQUE` (`Email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -72,39 +72,41 @@ CREATE TABLE `cuentas` (
 
 LOCK TABLES `cuentas` WRITE;
 /*!40000 ALTER TABLE `cuentas` DISABLE KEYS */;
-INSERT INTO `cuentas` VALUES (1,'Drizzt','miguel_mgarrido@hotmail.com','elcapo12','Alicante','España','1998-08-15','GameMaster'),(2,'Prueba','mago@hotmail.com','Cacapedo98','Avenida Ancha de Castelar 108, 2Âº izq','España','1998-08-15','Normal'),(3,'Chocoleito','santymmr@hotmail.com','Santimmr96','Novelda','España','1996-10-11','Normal');
+INSERT INTO `cuentas` VALUES (1,'Drizzt','miguel_mgarrido@hotmail.com','elcapo12','Alicante','España','1998-08-15','GameMaster'),(2,'Prueba','mago@hotmail.com','Cacapedo98','Avenida Ancha de Castelar 108, 2Âº izq','España','1998-08-15','Normal'),(3,'Chocoleito','santymmr@hotmail.com','Santimmr96','Novelda','España','1996-10-11','Normal'),(6,'qeqwewqe','','Everis12','','','2020-07-02','Normal'),(7,'asdasd','prueboo@hotmail.com','Prueba12','Avenida Ancha de Castelar 108, 2Âº izq','EspaÃ±a','2020-07-11','Normal');
 /*!40000 ALTER TABLE `cuentas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `inventario`
+-- Table structure for table `habilidades`
 --
 
-DROP TABLE IF EXISTS `inventario`;
+DROP TABLE IF EXISTS `habilidades`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `inventario` (
+CREATE TABLE `habilidades` (
   `personajes_idPersonajes` int NOT NULL,
   `personajes_Nombre` varchar(45) NOT NULL,
-  `idTienda` int NOT NULL,
-  `NombreObjeto` varchar(45) NOT NULL,
-  `DmgExtra` int NOT NULL,
-  `DefExtra` int DEFAULT NULL,
-  `SaludExtra` int NOT NULL,
-  `Cantidad` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idTienda`,`NombreObjeto`),
-  KEY `fk_inventario_personajes1_idx` (`personajes_idPersonajes`,`personajes_Nombre`),
-  CONSTRAINT `fk_inventario_personajes1` FOREIGN KEY (`personajes_idPersonajes`, `personajes_Nombre`) REFERENCES `personajes` (`idPersonajes`, `Nombre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `idHabilidades` int NOT NULL AUTO_INCREMENT,
+  `NombreHabilidad` varchar(45) NOT NULL,
+  `SkillDmg` int NOT NULL,
+  `SkillHeal` int DEFAULT '0',
+  `CosteMp` int NOT NULL,
+  `Elemento` varchar(45) DEFAULT 'Ninguno',
+  `Clase` varchar(45) NOT NULL,
+  PRIMARY KEY (`idHabilidades`),
+  UNIQUE KEY `NombreHabilidad_UNIQUE` (`NombreHabilidad`),
+  KEY `fk_Habilidades_personajes1_idx` (`personajes_idPersonajes`,`personajes_Nombre`),
+  CONSTRAINT `fk_Habilidades_personajes1` FOREIGN KEY (`personajes_idPersonajes`, `personajes_Nombre`) REFERENCES `personajes` (`idPersonajes`, `Nombre`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `inventario`
+-- Dumping data for table `habilidades`
 --
 
-LOCK TABLES `inventario` WRITE;
-/*!40000 ALTER TABLE `inventario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventario` ENABLE KEYS */;
+LOCK TABLES `habilidades` WRITE;
+/*!40000 ALTER TABLE `habilidades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `habilidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -132,7 +134,7 @@ CREATE TABLE `personajes` (
   UNIQUE KEY `Nombre_UNIQUE` (`Nombre`),
   KEY `fk_personajes_cuentas1_idx` (`cuentas_idCuentas`,`cuentas_Nick`),
   CONSTRAINT `fk_personajes_cuentas1` FOREIGN KEY (`cuentas_idCuentas`, `cuentas_Nick`) REFERENCES `cuentas` (`idCuentas`, `Nick`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -141,7 +143,6 @@ CREATE TABLE `personajes` (
 
 LOCK TABLES `personajes` WRITE;
 /*!40000 ALTER TABLE `personajes` DISABLE KEYS */;
-INSERT INTO `personajes` VALUES (1,'Drizzt',1,'LionHit',4,'Guerrero',8,0,13,300,360,NULL,'Nada'),(2,'Prueba',1,'Pruebita',4,'Arquero',24,0,21,131,240,NULL,'Arco de practica');
 /*!40000 ALTER TABLE `personajes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -154,4 +155,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-02 18:19:40
+-- Dump completed on 2020-07-06 12:59:53
