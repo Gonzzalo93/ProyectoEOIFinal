@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -291,4 +292,121 @@ public class ConexionSQL {
             
     }
       // FIN METODOS CREAR CLASES
+        
+        public boolean nuevoNombre(String nombre, String cambioname) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Nick = ? WHERE Nick = ? "; /* en test habrá que cojer el nombre del login antiguo*/
+                     
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, nombre);
+             stmt.setString(2, cambioname);
+              System.out.println("Ejecutando la query: " + insertQuery);
+				
+		rows = stmt.executeUpdate();
+                System.out.println("Registros afectados: " + rows);
+				
+		stmt.close();
+                con.close();
+				
+		return true;
+         } catch (SQLException ex) {
+             
+                return false;
+         }
+      }
+      
+      public boolean cambioPassword(String password, String nuevapass) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Password = ? WHERE (Nick = ? )";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, password);
+             stmt.setString(2, nuevapass);
+             System.out.println(" sesion vale: " + nuevapass);
+             System.out.println("Ejecutando la query: " + insertQuery);
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
+        
+        
+      
+      
+       public boolean cambioEmail(String email, String sesioncorreo) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Email = ? WHERE (Nick = ? )";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, email);
+             stmt.setString(2, sesioncorreo);
+             System.out.println("sesioncorreo vale :D ---> " + sesioncorreo);
+                     
+             System.out.println("Ejecutando la query: " + insertQuery);
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
+       
+       
+       public boolean borrarCuenta(String borrarnick) {
+          
+         try {
+             
+             String insertQuery = "DELETE FROM cuentas WHERE (Nick = ? )";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString (1 , borrarnick);
+             System.out.println("borranick vale.. :D --> " + borrarnick);
+             System.out.println("Ejecutando la query: " + insertQuery);
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
 }

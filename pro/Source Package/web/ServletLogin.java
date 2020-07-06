@@ -19,10 +19,10 @@ public class ServletLogin extends HttpServlet {
             String usuario = request.getParameter("usuario");
             String password = request.getParameter("password");
             ConexionSQL gestion = new ConexionSQL();
-<<<<<<< HEAD:pro/web/ServletLogin.java
+
                 if(gestion.checkLogin(usuario, password)){
                     System.out.println("Login correcto");
-=======
+
             PrintWriter out = response.getWriter();
                 if(gestion.checkLogin(usuario, password)){
                     System.out.println("Login correcto");
@@ -38,11 +38,12 @@ public class ServletLogin extends HttpServlet {
                     }
                    
                     
->>>>>>> master:pro/Source Package/web/ServletLogin.java
+
                 }else{
                     System.out.println("login incorrecto");
                     response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/login/login.html");
                 }
         }
     
-}
+    }
+}        
