@@ -106,34 +106,33 @@ public class ConexionSQL {
            
     }
        
-         public int checkPersonaje(String user){
-         String query = "Select idPersonajes from personajes where = ?";
+         public int checkPersonaje(int id){
+         String query = "Select idPersonajes from personajes where cuentas_idCuentas= ?";
          Connection con = null;
          PreparedStatement stmt = null;
          ResultSet rs = null;
-         int id = 0;
-         
+         int idp = 0;
             try {
                 con = getConnection();
                 stmt = con.prepareStatement(query);
-		stmt.setString(1, user);
+		stmt.setInt(1, id);
                 System.out.println("Ejecutando la query: " + query);
 				
 		rs = stmt.executeQuery();
                 while(rs.next()){
-                   id = rs.getInt("idPersonajes");
+                   idp = rs.getInt("idPersonajes");
                 }
                 
                 rs = null;
 		stmt.close();
                 con.close();
-                return id;
+                return idp;
                 
             } catch (SQLException e) {
                // TODO Auto-generated catch block
                 System.out.println("Fallo en el metodo de sql");
                e.printStackTrace();
-               return id;
+               return idp;
             }
            
     }
@@ -181,8 +180,8 @@ public class ConexionSQL {
       // METODOS CREAR CLASES
       public boolean createArquero(int id, String usuario, String personaje) {
 
-	String insertQuery = "INSERT INTO personajes(cuentas_idCuentas, cuentas_Nick, Nombre, Nivel, Clase, Dmg,"
-                + "CritDmg, Def, Hp, Experiencia, Dinero, ArmaEquipada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	String insertQuery = "INSERT INTO personajes(cuentas_idCuentas, Nombre,Clase, Dmg,"
+                + "CritDmg, Def, Evasion, Hp, Mp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	Connection con = null;
 	PreparedStatement stmt = null;
         
@@ -191,17 +190,14 @@ public class ConexionSQL {
                 con = getConnection();
                 stmt = con.prepareStatement(insertQuery);
                 stmt.setInt(1, id);
-		stmt.setString(2, usuario);
-                stmt.setString(3, personaje);
-                stmt.setInt(4, 1);
-                stmt.setString(5, "Arquero");
-                stmt.setInt(6, 15);
-                stmt.setInt(7, 200);
-                stmt.setInt(8, 9);
-                stmt.setInt(9, 100);
-                stmt.setInt(10, 0);
-                stmt.setInt(11, 0);
-                stmt.setString(12, "Nada");
+                stmt.setString(2, personaje);
+                stmt.setString(3, "Arquero");
+                stmt.setInt(4, 15);
+                stmt.setInt(5, 200);
+                stmt.setInt(6, 9);
+                stmt.setInt(7, 10);
+                stmt.setInt(8, 100);
+                stmt.setInt(9, 58);
                 System.out.println("Ejecutando la query: " + insertQuery);
 				
 		rows = stmt.executeUpdate();
@@ -222,8 +218,8 @@ public class ConexionSQL {
       
        public boolean createWarrior(int id, String usuario, String personaje) {
 
-	String insertQuery = "INSERT INTO personajes(cuentas_idCuentas, cuentas_Nick, Nombre, Nivel, Clase, Dmg,"
-                + "CritDmg, Def, Hp, Experiencia, Dinero, ArmaEquipada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	String insertQuery = "INSERT INTO personajes(cuentas_idCuentas, Nombre,Clase, Dmg,"
+                + "CritDmg, Def, Evasion, Hp, Mp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	Connection con = null;
 	PreparedStatement stmt = null;
         
@@ -232,17 +228,14 @@ public class ConexionSQL {
                 con = getConnection();
                 stmt = con.prepareStatement(insertQuery);
                 stmt.setInt(1, id);
-		stmt.setString(2, usuario);
-                stmt.setString(3, personaje);
-                stmt.setInt(4, 1);
-                stmt.setString(5, "Guerrero");
-                stmt.setInt(6, 8);
-                stmt.setInt(7, 150);
-                stmt.setInt(8, 14);
-                stmt.setInt(9, 140);
-                stmt.setInt(10, 0);
-                stmt.setInt(11, 0);
-                stmt.setString(12, "Nada");
+                stmt.setString(2, personaje);
+                stmt.setString(3, "Guerrero");
+                stmt.setInt(4, 8);
+                stmt.setInt(5, 150);
+                stmt.setInt(6, 14);
+                stmt.setInt(7, 3);
+                stmt.setInt(8, 140);
+                stmt.setInt(9, 24);
                 System.out.println("Ejecutando la query: " + insertQuery);
 				
 		rows = stmt.executeUpdate();
@@ -262,8 +255,8 @@ public class ConexionSQL {
     }
         public boolean createMago(int id, String usuario, String personaje) {
 
-	String insertQuery = "INSERT INTO personajes(cuentas_idCuentas, cuentas_Nick, Nombre, Nivel, Clase, Dmg,"
-                + "CritDmg, Def, Hp, Experiencia, Dinero, ArmaEquipada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	String insertQuery = "INSERT INTO personajes(cuentas_idCuentas, Nombre,Clase, Dmg,"
+                + "CritDmg, Def, Evasion, Hp, Mp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	Connection con = null;
 	PreparedStatement stmt = null;
         
@@ -272,17 +265,14 @@ public class ConexionSQL {
                 con = getConnection();
                 stmt = con.prepareStatement(insertQuery);
                 stmt.setInt(1, id);
-		stmt.setString(2, usuario);
-                stmt.setString(3, personaje);
-                stmt.setInt(4, 1);
-                stmt.setString(5, "Arquero");
-                stmt.setInt(6, 22);
-                stmt.setInt(7, 0);
-                stmt.setInt(8, 6);
-                stmt.setInt(9, 70);
-                stmt.setInt(10, 0);
-                stmt.setInt(11, 0);
-                stmt.setString(12, "Nada");
+                stmt.setString(2, personaje);
+                stmt.setString(3, "Mago");
+                stmt.setInt(4, 22);
+                stmt.setInt(5, 0);
+                stmt.setInt(6, 6);
+                stmt.setInt(7, 5);
+                stmt.setInt(8, 70);
+                stmt.setInt(9, 110);
                 System.out.println("Ejecutando la query: " + insertQuery);
 				
 		rows = stmt.executeUpdate();
