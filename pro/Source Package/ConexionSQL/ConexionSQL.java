@@ -105,6 +105,38 @@ public class ConexionSQL {
             }
            
     }
+       
+         public int checkPersonaje(String user){
+         String query = "Select idPersonajes from personajes where = ?";
+         Connection con = null;
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         int id = 0;
+         
+            try {
+                con = getConnection();
+                stmt = con.prepareStatement(query);
+		stmt.setString(1, user);
+                System.out.println("Ejecutando la query: " + query);
+				
+		rs = stmt.executeQuery();
+                while(rs.next()){
+                   id = rs.getInt("idPersonajes");
+                }
+                
+                rs = null;
+		stmt.close();
+                con.close();
+                return id;
+                
+            } catch (SQLException e) {
+               // TODO Auto-generated catch block
+                System.out.println("Fallo en el metodo de sql");
+               e.printStackTrace();
+               return id;
+            }
+           
+    }
      //FIN METODOS DE CHECKEO DE PARAMETROS  
      ///////////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////////

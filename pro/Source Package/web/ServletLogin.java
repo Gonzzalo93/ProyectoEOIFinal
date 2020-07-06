@@ -27,8 +27,13 @@ public class ServletLogin extends HttpServlet {
                     System.out.println("Login correcto");
                     HttpSession sesion = request.getSession();
                     sesion.setAttribute("Nick", usuario);
-                    if(gestion.checkPersonajes(usuario) == 0){
+                    if(gestion.checkPersonaje(usuario) == 1){
+                        response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.html");
+
+                    }else{
                         response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/crearpersonaje/crearpersonaje.jsp");
+
+                    }
                    
                     
                 }else{
