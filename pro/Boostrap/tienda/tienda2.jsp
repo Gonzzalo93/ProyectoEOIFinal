@@ -4,6 +4,12 @@
     Author     : Propietario
 --%>
 
+<% 
+    HttpSession sesion = request.getSession();
+             String login = (String)sesion.getAttribute("Nick");
+             int dinero = (Integer) sesion.getAttribute("Dinero");
+
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
