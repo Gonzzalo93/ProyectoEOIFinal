@@ -33,7 +33,8 @@ public class ServletCrearArquero extends HttpServlet{
                 }else{
                     System.out.println("login incorrecto");
                 }
+                /*/ProyectoWebFinal/Boostrap/index/index.html */
                 
-      
+                response.sendRedirect("/ProyectoWebFinal/Boostrap/index/index.jsp");
         }
 }

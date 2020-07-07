@@ -25,6 +25,8 @@ public class ServletCambioEmail extends HttpServlet{
             }else{
                 System.out.println("mal");
             }
+            
+            response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
         }
         
         

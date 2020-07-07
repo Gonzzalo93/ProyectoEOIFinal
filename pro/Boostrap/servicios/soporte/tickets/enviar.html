@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon/favicon-16x16.png">
     <link rel="manifest" href="../../../favicon/site.webmanifest">
-    <link rel="mask-icon" href="../../../favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="mask-icon" href="../../../favicon/safari-pinned-tab.svg">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>Shadowlands - Soporte</title>
@@ -21,26 +21,26 @@
     <div class="p-3 mb-2 bg-primary text-white">Enviar Ticket
         <h1>Eliga una opción</h1>
     </div>
-    <!-- Hay que poner method post y el action del servlet  -->
-    <form>
+   
+    <form method="post" action="/ProyectoWebFinal/ServletTicket">
         <div class="form-group">
             <label for="exampleFormControlInput1">¿Sobre que tema va a tratar el ticket?</label>
             <div class="col-2">
-                <select class="form-control">
+                <select name="opcion" class="form-control">
                 <option>Seleccione un problema</option>
                 <option>Tengo problemas con la web</option>
                 <option>Tengo problemas con el Juego</option>
-                <option>Tengo problemas con Java</option>
+                <option>">Tengo problemas con Java</option>
               </select>
             </div>
             <label for="exampleFormControlInput1">¿En que te podemos ayudar?</label>
             <div class="col-3">
-                <input type="texto" class="form-control" id="exampleFormControlInput1" placeholder="Titulo">
+                <input type="text" class="form-control" name="titulo" id="exampleFormControlInput1" placeholder="Titulo">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descripción del problema</label>
                 <div class="col-5">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>

@@ -35,6 +35,6 @@ public class ServletCrearMago extends HttpServlet{
                     System.out.println("login incorrecto");
                 }
                 
-      
+                response.sendRedirect("/ProyectoWebFinal/Boostrap/index/index.jsp");
         }
 }

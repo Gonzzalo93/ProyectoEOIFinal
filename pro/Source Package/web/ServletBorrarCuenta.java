@@ -40,7 +40,7 @@ import javax.swing.JOptionPane;
          }
            
         
-        
+        response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
         
     }
 }    
