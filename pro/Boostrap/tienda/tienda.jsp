@@ -4,16 +4,13 @@
     Author     : santi
 --%>
 
+
 <% 
     HttpSession sesion = request.getSession();
              String login = (String)sesion.getAttribute("Nick");
-             int dinero = (int)sesion.getAttribute("Dinero");
-
-    
-
+             int dinero = (Integer) sesion.getAttribute("Dinero");
 
 %>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -60,7 +57,7 @@
         
         <div class="container">
            
-            <h2>Tienda de <%=login%> y cuentas con <%=dinero%> oro</h2>   
+            <h2>Tienda de <%= login%>  y cuentas con <%= dinero %>  oro</h2>   
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>
