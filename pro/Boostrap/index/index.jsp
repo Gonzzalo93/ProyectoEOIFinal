@@ -1,3 +1,27 @@
+<%-- 
+    Document   : index
+    Created on : 7 jul. 2020, 16:06:40
+    Author     : Propietario
+--%>
+<% 
+    HttpSession sesion = request.getSession();
+             String login = (String)sesion.getAttribute("Nick");
+             
+             if (login == null) {
+                 login = "Login";
+             }else{
+                 login = login;
+             } 
+             
+
+
+
+%>
+
+ 
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,10 +31,14 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Shadowland, una nueva era ha comenzado</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
@@ -30,9 +58,9 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../login/login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../login/login.html"><%=login%></a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../registro/registro.html">Crear cuenta</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../tienda/tienda.html">Tienda de objetos</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../tienda/tienda.jsp">Tienda de objetos</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Sobre nosotros</a></li>
                 </ul>
             </div>
@@ -162,7 +190,7 @@
             <a class="mx-2" href="https://www.facebook.com/groups/201129633726211"><i class="fab fa-facebook-f"></i></a>
             <a class="mx-2" href="https://github.com/Gonzzalo93/ProyectoEOIFinal"><i class="fab fa-github"></i></a>
         </div>
-        
+        </div>
     </section>
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">

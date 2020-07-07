@@ -135,6 +135,37 @@ public class ConexionSQL {
                e.printStackTrace();
                return idp;
             }
+         } 
+            
+            
+         public int checkCash(int cash){
+            String query = "Select Dinero from personajes where cuentas_idCuentas= ?";
+            Connection con = null;
+             PreparedStatement stmt = null;
+             ResultSet rs = null;
+                 int dinero = 0;
+                    try {
+                        con = getConnection();
+                        stmt = con.prepareStatement(query);
+                        stmt.setInt(1, cash);
+                        System.out.println("Ejecutando la query: " + query);
+				
+                        rs = stmt.executeQuery();
+                         while(rs.next()){
+                         dinero = rs.getInt("Dinero");
+                             }
+                
+                            rs = null;
+                            stmt.close();
+                            con.close();
+                            return dinero;
+                
+            } catch (SQLException e) {
+               // TODO Auto-generated catch block
+                System.out.println("Fallo en el metodo de sql");
+               e.printStackTrace();
+               return dinero;
+            }
            
     }
      //FIN METODOS DE CHECKEO DE PARAMETROS  
@@ -395,6 +426,40 @@ public class ConexionSQL {
              stmt = con.prepareStatement(insertQuery);
              stmt.setString (1 , borrarnick);
              System.out.println("borranick vale.. :D --> " + borrarnick);
+             System.out.println("Ejecutando la query: " + insertQuery);
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
+       /* "INSERT INTO personajes(cuentas_idCuentas, Nombre,Clase, Dmg,"
+                + "CritDmg, Def, Evasion, Hp, Mp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; */
+       
+       public boolean enviarTicket(int id, String opcion, String titulo, String descripcion) {
+         try {
+             String insertQuery = "INSERT INTO consultas (cuentas_idCuentas, Categoria, Titulo, Comentarios) VALUES (?, ?, ?, ?)";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             /* if (gestion.cambioPassword(opcion,titulo,descripcion,nuevapass)){*/
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setInt(1, id);
+             stmt.setString(2, opcion);    
+             stmt.setString(3, titulo);
+             stmt.setString(4, descripcion);
+             /*stmt.setString(4, sesion);*/
              System.out.println("Ejecutando la query: " + insertQuery);
              
              rows = stmt.executeUpdate();

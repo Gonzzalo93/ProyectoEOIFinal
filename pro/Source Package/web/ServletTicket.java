@@ -16,25 +16,28 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Santi
+ * @author Propietario
  */
-@WebServlet("/ServletCambioNombre")
-public class ServletCambioNombre  extends HttpServlet{
-          protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
-             HttpSession sesion = request.getSession();
-             String cambioname = (String)sesion.getAttribute("Nick");
-           String usuario = request.getParameter("nnick");
+@WebServlet("/ServletTicket") 
+public class ServletTicket extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
+         HttpSession sesion = request.getSession();
+         String nuevapass = (String)sesion.getAttribute("Nick");
+        
+         
+          String opcion = request.getParameter("opcion");
+          String titulo = request.getParameter("titulo");
+           String descripcion = request.getParameter("descripcion");
             ConexionSQL gestion = new ConexionSQL();
-             
-            if (gestion.nuevoNombre(usuario,cambioname)){
+            int id = gestion.checkId(nuevapass);
+            
+            if (gestion.enviarTicket(id, opcion, titulo, descripcion)){
                 System.out.println("bien");
             }else{
                 System.out.println("mal");
             }
+            
             response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
         }
     
-
-    
 }
-

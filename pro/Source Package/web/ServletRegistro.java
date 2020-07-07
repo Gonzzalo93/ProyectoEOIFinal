@@ -32,6 +32,8 @@ public class ServletRegistro extends HttpServlet{
             }else{
                 System.out.println("mal");
             }
+            
+            response.sendRedirect("/ProyectoWebFinal/Boostrap/index/index.jsp");
         }
         
 }
