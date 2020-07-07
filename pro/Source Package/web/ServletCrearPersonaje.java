@@ -25,7 +25,7 @@ public class ServletCrearPersonaje extends HttpServlet{
         protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
              HttpSession sesion = request.getSession();
             String nombre = request.getParameter("nombre");
-            String nick = (String)sesion.getAttribute("Nick");
+           String nick = (String)sesion.getAttribute("Nick");
             ConexionSQL gestion = new ConexionSQL();
             PrintWriter out = response.getWriter();
             int id = gestion.checkId(nick);
