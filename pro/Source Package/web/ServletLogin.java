@@ -33,7 +33,7 @@ public class ServletLogin extends HttpServlet {
                     System.out.println("oro:" + dinero);
              
                     
-                    if(gestion.checkPersonaje(id) >= 1){
+                    if(gestion.checkIdPersonaje(id) >= 1){
                         response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.jsp");
 
                     }else{
