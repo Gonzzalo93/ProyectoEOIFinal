@@ -584,9 +584,50 @@ public class ConexionSQL {
          } catch (SQLException ex) {
          }
       }
+<<<<<<< HEAD
+       
+       /* ########## GESTION DEL ADMINISTRADOR ##########*/
+       
+       public boolean adminNuevoNombre(String antiguo, String nuevo) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Nick = ? WHERE Nick = ? "; 
+                     
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, nuevo);
+             stmt.setString(2, antiguo);
+             System.out.println("nuevoo" + nuevo);
+             System.out.println("antiguooooo" + antiguo);
+              System.out.println("Ejecutando la query: " + insertQuery);
+				
+		rows = stmt.executeUpdate();
+                System.out.println("Registros afectados: " + rows);
+				
+		stmt.close();
+                con.close();
+		return true;		
+		
+         } catch (SQLException ex) {
+             
+               return false;
+         }
+      }
+       
+       
+       public boolean adminNuevaPass(String user, String nueva) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Password = ? WHERE Nick = ? "; 
+                     
+=======
         public void cambioArmadura(String personaje, String armadura) {
          try {
              String insertQuery = "UPDATE personajes SET ArmaduraEquipada = ? WHERE (Nombre = ? )";
+>>>>>>> master
              Connection con = null;
              PreparedStatement stmt = null;
              int rows = 0;
@@ -594,16 +635,98 @@ public class ConexionSQL {
              
              con = getConnection();
              stmt = con.prepareStatement(insertQuery);
+<<<<<<< HEAD
+             stmt.setString(1, nueva);
+             stmt.setString(2, user);
+             System.out.println("al usuario " + user);
+             System.out.println("contraseñaa " + nueva);
+              System.out.println("Ejecutando la query: " + insertQuery);
+				
+		rows = stmt.executeUpdate();
+                System.out.println("Registros afectados: " + rows);
+				
+		stmt.close();
+                con.close();
+		return true;		
+		
+         } catch (SQLException ex) {
+             
+               return false;
+         }
+      }
+       
+        public boolean adminNuevoEmail(String user, String nueva) {
+         try {
+             String insertQuery = "UPDATE cuentas SET Email = ? WHERE Nick = ? "; 
+                     
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString(1, nueva);
+             stmt.setString(2, user);
+              System.out.println("Ejecutando la query: " + insertQuery);
+				
+		rows = stmt.executeUpdate();
+                System.out.println("Registros afectados: " + rows);
+				
+		stmt.close();
+                con.close();
+		return true;		
+		
+         } catch (SQLException ex) {
+             
+               return false;
+         }
+      }
+        
+        
+        
+        public boolean adminBorrarCuenta(String user) {
+          
+         try {
+             
+             String insertQuery = "DELETE FROM cuentas WHERE (Nick = ? )";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString (1 , user);
+             
+            
+=======
              stmt.setString(1, armadura);
              stmt.setString(2, personaje);
                      
              System.out.println("Ejecutando la query: " + insertQuery);
+>>>>>>> master
              
              rows = stmt.executeUpdate();
              System.out.println("Registros afectados: " + rows);
              
              stmt.close();
              con.close();
+<<<<<<< HEAD
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
+
+    public boolean adminEstadisticas(String cuenta, String personaje, String clase, String oro, String nivel, String progreso, String hp, String mp, String atq, String def, String eva) {
+          
+         try {
+             
+             String insertQuery = "UPDATE cuentas SET personaje = ?, clase = ?, oro = ?, nivel = ?, progreso = ?, hp = ?, mp = ?, atq = ?, def = ?, eva = ? WHERE cuentas_idCuentas = ? ";
+=======
          } catch (SQLException ex) {
          }
       }
@@ -681,6 +804,7 @@ public class ConexionSQL {
           public void gastarDinero(String personaje, int coste) {
          try {
              String insertQuery = "UPDATE personajes SET Dinero= ? WHERE (Nombre = ? )";
+>>>>>>> master
              Connection con = null;
              PreparedStatement stmt = null;
              int rows = 0;
@@ -688,156 +812,7 @@ public class ConexionSQL {
              
              con = getConnection();
              stmt = con.prepareStatement(insertQuery);
-             stmt.setInt(1, coste);
-             stmt.setString(2, personaje);
-                     
-             System.out.println("Ejecutando la query: " + insertQuery);
-             
-             rows = stmt.executeUpdate();
-             System.out.println("Registros afectados: " + rows);
-             
-             stmt.close();
-             con.close();
-         } catch (SQLException ex) {
-         }
-      }
-     //FIN METODOS TIENDA
-          
-       
-       /* ########## GESTION DEL ADMINISTRADOR ##########*/
-       
-       public boolean adminNuevoNombre(String antiguo, String nuevo) {
-         try {
-             String insertQuery = "UPDATE cuentas SET Nick = ? WHERE Nick = ? "; 
-                     
-             Connection con = null;
-             PreparedStatement stmt = null;
-             int rows = 0;
-             
-             System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-             con = getConnection();
-             stmt = con.prepareStatement(insertQuery);
-             stmt.setString(1, nuevo);
-             stmt.setString(2, antiguo);
-             System.out.println("nuevoo" + nuevo);
-             System.out.println("antiguooooo" + antiguo);
-              System.out.println("Ejecutando la query: " + insertQuery);
-				
-		rows = stmt.executeUpdate();
-                System.out.println("Registros afectados: " + rows);
-				
-		stmt.close();
-                con.close();
-		return true;		
-		
-         } catch (SQLException ex) {
-             
-               return false;
-         }
-      }
-       
-       
-       public boolean adminNuevaPass(String user, String nueva) {
-         try {
-             String insertQuery = "UPDATE cuentas SET Password = ? WHERE Nick = ? "; 
-                     
-             Connection con = null;
-             PreparedStatement stmt = null;
-             int rows = 0;
-             
-             
-             con = getConnection();
-             stmt = con.prepareStatement(insertQuery);
-             stmt.setString(1, nueva);
-             stmt.setString(2, user);
-             System.out.println("al usuario " + user);
-             System.out.println("contraseñaa " + nueva);
-              System.out.println("Ejecutando la query: " + insertQuery);
-				
-		rows = stmt.executeUpdate();
-                System.out.println("Registros afectados: " + rows);
-				
-		stmt.close();
-                con.close();
-		return true;		
-		
-         } catch (SQLException ex) {
-             
-               return false;
-         }
-      }
-       
-        public boolean adminNuevoEmail(String user, String nueva) {
-         try {
-             String insertQuery = "UPDATE cuentas SET Email = ? WHERE Nick = ? "; 
-                     
-             Connection con = null;
-             PreparedStatement stmt = null;
-             int rows = 0;
-             
-             
-             con = getConnection();
-             stmt = con.prepareStatement(insertQuery);
-             stmt.setString(1, nueva);
-             stmt.setString(2, user);
-              System.out.println("Ejecutando la query: " + insertQuery);
-				
-		rows = stmt.executeUpdate();
-                System.out.println("Registros afectados: " + rows);
-				
-		stmt.close();
-                con.close();
-		return true;		
-		
-         } catch (SQLException ex) {
-             
-               return false;
-         }
-      }
-        
-        
-        
-        public boolean adminBorrarCuenta(String user) {
-          
-         try {
-             
-             String insertQuery = "DELETE FROM cuentas WHERE (Nick = ? )";
-             Connection con = null;
-             PreparedStatement stmt = null;
-             int rows = 0;
-             
-             
-             con = getConnection();
-             stmt = con.prepareStatement(insertQuery);
-             stmt.setString (1 , user);
-             
-            
-             
-             rows = stmt.executeUpdate();
-             System.out.println("Registros afectados: " + rows);
-             
-             stmt.close();
-             con.close();
-             
-             return true;
-         } catch (SQLException ex) {
-            
-             return false;
-         }
-      }
-
-    public boolean adminEstadisticas(String cuenta, String personaje, String clase, String oro, String nivel, String progreso, String hp, String mp, String atq, String def, String eva) {
-          
-         try {
-             
-             String insertQuery = "UPDATE cuentas SET personaje = ?, clase = ?, oro = ?, nivel = ?, progreso = ?, hp = ?, mp = ?, atq = ?, def = ?, eva = ? WHERE cuentas_idCuentas = ? ";
-             Connection con = null;
-             PreparedStatement stmt = null;
-             int rows = 0;
-             
-             
-             con = getConnection();
-             stmt = con.prepareStatement(insertQuery);
+<<<<<<< HEAD
              stmt.setString (1 , cuenta);
              stmt.setString (2 , personaje);
              stmt.setString (3 , clase);
@@ -851,12 +826,19 @@ public class ConexionSQL {
              stmt.setString (11 , eva);
              
             
+=======
+             stmt.setInt(1, coste);
+             stmt.setString(2, personaje);
+                     
+             System.out.println("Ejecutando la query: " + insertQuery);
+>>>>>>> master
              
              rows = stmt.executeUpdate();
              System.out.println("Registros afectados: " + rows);
              
              stmt.close();
              con.close();
+<<<<<<< HEAD
              
              return true;
          } catch (SQLException ex) {
@@ -864,5 +846,12 @@ public class ConexionSQL {
              return false;
          }
     }
+=======
+         } catch (SQLException ex) {
+         }
+      }
+     //FIN METODOS TIENDA
+          
+>>>>>>> master
 }
 
