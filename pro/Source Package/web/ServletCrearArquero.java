@@ -26,15 +26,15 @@ public class ServletCrearArquero extends HttpServlet{
             int id = gestion.checkId(nick);
             
             
-                if(gestion.createArquero(id,nick,nombre)){
-                    System.out.println("Somos dioses");
+                if(gestion.createWarrior(id,nick,nombre)){
+                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.jsp");
                    
                     
                 }else{
-                    System.out.println("login incorrecto");
+                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/crearpersonaje/crearpersonaje.jsp");
                 }
-                /*/ProyectoWebFinal/Boostrap/index/index.html */
                 
-                response.sendRedirect("/ProyectoWebFinal/Boostrap/index/index.jsp");
+                
+      
         }
 }

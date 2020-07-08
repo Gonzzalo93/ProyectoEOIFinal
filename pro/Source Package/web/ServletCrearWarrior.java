@@ -30,16 +30,14 @@ public class ServletCrearWarrior extends HttpServlet{
             PrintWriter out = response.getWriter();
             int id = gestion.checkId(nick);
             
-            
                 if(gestion.createWarrior(id,nick,nombre)){
-                    System.out.println("Somos dioses");
+                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.jsp");
                    
                     
                 }else{
-                    System.out.println("login incorrecto");
+                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/crearpersonaje/crearpersonaje.jsp");
                 }
                 
-                response.sendRedirect("/ProyectoWebFinal/Boostrap/index/index.jsp");
       
         }
 }
