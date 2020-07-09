@@ -17,6 +17,7 @@
     </head>
     <body>
         <h1>Shadowlands</h1>
+
         <h2>Otros Rankings</h2>   
          <%       
         String tipo =request.getParameter("otros");
@@ -24,6 +25,8 @@
  
             %>
         <br>
+                <br>
+
         <h2><%= "Ranking de " + tipo %></h2>
         <%   
         String url = "jdbc:mysql://localhost:3306/shadowlands?useSSL=false&serverTimezone=UTC";
