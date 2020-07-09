@@ -196,6 +196,81 @@ public class ConexionSQL {
             }
            
     }
+
+    public String checkRol(String nick){
+         String rol = null;
+         String query = "Select TipoCuenta from cuentas where Nick = ? ";
+         Connection con = null;
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         
+ 
+        
+         
+            try {
+                con = getConnection();
+                stmt = con.prepareStatement(query);
+		stmt.setString(1, nick);
+                System.out.println("Ejecutando la query: " + query);
+		
+                
+		rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                    rol = rs.getString("TipoCuenta");
+                    System.out.println("rol: " + rol);
+                    
+                rs.close();
+		stmt.close();
+                con.close();
+                return rol;
+                }
+                
+                rs.close();
+		stmt.close();
+                con.close();
+                return rol;
+                
+            } catch (SQLException e) {
+               // TODO Auto-generated catch block
+                System.out.println("Fallo en el metodo de sql");
+               e.printStackTrace();
+               return rol;
+            }
+           
+    }
+
+    public String checkClase(int user){
+         String query = "Select Clase from cuentas where cuentas_idCuentas = ? ";
+         Connection con = null;
+         PreparedStatement stmt = null;
+         ResultSet rs = null;
+         String clase = null;
+
+            try {
+                con = getConnection();
+                stmt = con.prepareStatement(query);
+        stmt.setInt(1, user);
+                System.out.println("Ejecutando la query: " + query);
+
+        rs = stmt.executeQuery();
+                while(rs.next()){
+                   clase = rs.getString("Clase");
+                }
+
+                rs = null;
+        stmt.close();
+                con.close();
+                return clase;
+
+            } catch (SQLException e) {
+               // TODO Auto-generated catch block
+                System.out.println("Fallo en el metodo de sql");
+               e.printStackTrace();
+               return clase;
+            }
+
+    }
      //FIN METODOS DE CHECKEO DE PARAMETROS  
      ///////////////////////////////////////////////////////////////
      ///////////////////////////////////////////////////////////////
@@ -826,11 +901,11 @@ public class ConexionSQL {
          }
       }
 
-    public boolean adminEstadisticas(String cuenta, String personaje, String clase, String oro, String nivel, String progreso, String hp, String mp, String atq, String def, String eva) {
+    public boolean adminEstadisticas(int cuenta, String personaje, String clase, int oro, int nivel, int progreso, int hp, int mp, int atq, int def, int eva) {
           
          try {
              
-             String insertQuery = "UPDATE cuentas SET personaje = ?, clase = ?, oro = ?, nivel = ?, progreso = ?, hp = ?, mp = ?, atq = ?, def = ?, eva = ? WHERE cuentas_idCuentas = ? ";
+             String insertQuery = "UPDATE personajes SET Nombre = ?, Clase = ?, Dinero = ?, Nivel = ?, Progreso = ?, Hp = ?, Mp = ?, Dmg = ?, Def = ?, Evasion = ? WHERE cuentas_idCuentas = ? ";
              Connection con = null;
              PreparedStatement stmt = null;
              int rows = 0;
@@ -838,17 +913,17 @@ public class ConexionSQL {
              
              con = getConnection();
              stmt = con.prepareStatement(insertQuery);
-             stmt.setString (1 , cuenta);
-             stmt.setString (2 , personaje);
-             stmt.setString (3 , clase);
-             stmt.setString (4 , oro);
-             stmt.setString (5 , nivel);
-             stmt.setString (6 , progreso);
-             stmt.setString (7 , hp);
-             stmt.setString (8 , mp);
-             stmt.setString (9 , atq);
-             stmt.setString (10 , def);
-             stmt.setString (11 , eva);
+             stmt.setString (1 , personaje);
+             stmt.setString (2 , clase);
+             stmt.setInt (3 , oro);
+             stmt.setInt (4 , nivel);
+             stmt.setInt (5 , progreso);
+             stmt.setInt (6 , hp);
+             stmt.setInt (7 , mp);
+             stmt.setInt (8 , atq);
+             stmt.setInt (9 , def);
+             stmt.setInt (10 , eva);
+             stmt.setInt (11 , cuenta);
              
             
              
@@ -864,5 +939,35 @@ public class ConexionSQL {
              return false;
          }
     }
+
+     public boolean adminCambioPais(String user,String pais) {
+          
+         try {
+             
+             String insertQuery = "UPDATE cuentas SET Pais = ? WHERE Nick = ?";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setString (1 , pais);
+             stmt.setString (2, user);
+             
+            
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
 }
 

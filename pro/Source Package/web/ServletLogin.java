@@ -29,24 +29,38 @@ public class ServletLogin extends HttpServlet {
                     sesion.setAttribute("Nick", usuario);
                     int id = gestion.checkId(usuario);
                     int dinero = gestion.checkCash(id);
+                    
+                    
+                    String admin = gestion.checkRol(usuario);
                     sesion.setAttribute("Dinero", dinero);
                     System.out.println("oro:" + dinero);
-             
+                    System.out.println("rol: " + admin);
                     
-                    if(gestion.checkIdPersonaje(id) >= 1){
-                        response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.jsp");
-
+                    System.out.println("Admin: " + admin);
+                    
+                    if(gestion.checkPersonaje(id) >= 1){
+                       
+                        
+                        if(gestion.checkRol(usuario).equals("Admin")) {
+                            System.out.println("ESTOY DENTRO" + usuario);
+                        response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/vistaadmin/vistaAdmin.html");
+                        
                     }else{
-                        response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/crearpersonaje/crearpersonaje.jsp");
+                        response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.jsp");    
+                        
 
                     }
                    
                     
                 }else{
                     System.out.println("login incorrecto");
-                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/login/login.jsp");
+                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/crearpersonaje/crearpersonaje.jsp");
+                    
                 }
                
       
-        }
+        }else{
+                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/login/login.html");
+                }
+    }
 }

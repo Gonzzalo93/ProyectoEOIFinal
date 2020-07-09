@@ -53,3 +53,19 @@ form {
     padding-top: 20px;
     margin-right: 100px;
 }
+
+.backcolor {
+    background-color:#660033 !important;
+}
+
+.enblanco {
+    color:white !important;
+}
+
+.enblanco:hover {
+    color: lightgreen !important;
+}
+
+.enblanco2 {
+    color:white !important;
+}

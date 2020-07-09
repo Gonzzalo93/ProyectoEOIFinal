@@ -22,20 +22,24 @@ public class AdminEstadisticas extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
        
-        String cuenta = request.getParameter("ncuenta");
+        
+        
+        int cuenta = Integer.parseInt(request.getParameter("ncuenta"));
         String personaje = request.getParameter("npersonaje");
         String clase = request.getParameter("clase");
-        String oro = request.getParameter("oro");
-        String nivel = request.getParameter("nivel");
-        String progreso = request.getParameter("torre");
-        String hp = request.getParameter("hp");
-        String mp = request.getParameter("mp");
-        String atq = request.getParameter("atq");
-        String def = request.getParameter("def");
-        String eva = request.getParameter("eva");
+        int oro = Integer.parseInt(request.getParameter("oro"));
+        int nivel = Integer.parseInt(request.getParameter("nivel"));
+        int progreso = Integer.parseInt(request.getParameter("torre"));
+        int hp = Integer.parseInt(request.getParameter("hp"));
+        int mp = Integer.parseInt(request.getParameter("mp"));
+        int atq = Integer.parseInt(request.getParameter("atq"));
+        int def = Integer.parseInt(request.getParameter("def"));
+        int eva = Integer.parseInt(request.getParameter("eva"));
         
+        System.out.println("cuenta: " + cuenta);
+        System.out.println("oro: " + oro);
+          System.out.println("lv: " + nivel);
         
-     
          ConexionSQL gestion = new ConexionSQL();
          if (gestion.adminEstadisticas(cuenta,personaje,clase,oro,nivel,progreso,hp,mp,atq,def,eva)){
                 System.out.println("bien");

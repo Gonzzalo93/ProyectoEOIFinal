@@ -7,16 +7,9 @@
 
 <% 
     HttpSession sesion = request.getSession();
-         
-           String login = (String)sesion.getAttribute("Nick");
-          Integer dinero = (Integer) sesion.getAttribute("Dinero");
-       if( login == null){
-           login = "invitado";
-           
-       }
-          if (dinero == null){
-              dinero = 0;
-          }
+             String login = (String)sesion.getAttribute("Nick");
+             int dinero = (Integer) sesion.getAttribute("Dinero");
+
 %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -74,103 +67,100 @@
                         <th scope="col ">Comprar</th>
                     </tr>
                 </thead>
-                <form action="/ProyectoWebFinal/ServletComprarArma" method="post">
-                    <tbody>
-                        <tr id="espada">
+                <tbody>
+                    <tr id="espada">
 
 
-                            <td><img src="imagenes/espada1.png "></td>
-                            <td class="tier1 ">Espada de Madera: +20 daño +4% Probabilidad de Crítico </td>
-                            <td><button type="submit" name="boton" class="btn btn-warning txt " value="Espada de madera">Comprar (1.000g)</button></td>
-                        </tr>
-                        <tr>
+                        <td><img src="imagenes/espada1.png "></td>
+                        <td class="tier1 ">Espada de Madera: +4 daño +4% Probabilidad de Crítico </td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (1.000g)</button></td>
+                    </tr>
+                    <tr>
 
-                            <td><img src="imagenes/espada2.png "></td>
-                            <td class="tier2 ">Espada de Plata: +44 daño +8% Probabilidad de Crítico</td>
-                            <td><button type="submit" name="boton" class="btn btn-warning txt " value="Espada de plata">Comprar (3.000g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/espada3.png "></td>
-                            <td class="tier3 ">Espada de Hierro Rojo: +67 daño 15% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Espada de de hierro rojo">Comprar (5.500g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/espada4.png "></td>
-                            <td class="tier4 ">Espada de los Antiguos: +100 daño +25% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Espada de los antiguos">Comprar (7.100g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/espada5.png "></td>
-                            <td class="tier5 ">Sangre Nocturna: +140 daño +40% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Sangre nocturna">Comprar (10.000g)</button></td>
-                        </tr>
-                        <tr id="arcos">
+                        <td><img src="imagenes/espada2.png "></td>
+                        <td class="tier2 ">Espada de Plata: +8 daño +8% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (3.000g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/espada3.png "></td>
+                        <td class="tier3 ">Espada de Hierro Rojo: +14 daño 15% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (5.500g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/espada4.png "></td>
+                        <td class="tier4 ">Espada de los Antiguos: +21 daño +25% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (7.100g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/espada5.png "></td>
+                        <td class="tier5 ">Sangre Nocturna: +32 daño +40% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (10.000g)</button></td>
+                    </tr>
+                    <tr id="arcos">
 
-                            <td><img src="imagenes/arco1.png "></td>
-                            <td class="tier1 ">Arco de práctica: +30 daño +6% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Arco de practica">Comprar (900g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/arco2.png "></td>
-                            <td class="tier2 ">Arco del Bosque: +58 daño +12% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Arco del bosque">Comprar (2.900g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/arco3.png "></td>
-                            <td class="tier3 ">Arco de Tirador: +92 daño +20% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " Arco de tirador>Comprar (5.300g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/arco4.png "></td>
-                            <td class="tier4 ">Trazadora: +150 daño +32% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Trazadora">Comprar (7.000g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/arco5.png "></td>
-                            <td class="tier5 ">Diente de Dragón: +190 daño +60% Probabilidad de Crítico</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Diente de dragon">Comprar (12.000g)</button></td>
-                        </tr>
+                        <td><img src="imagenes/arco1.png "></td>
+                        <td class="tier1 ">Arco de práctica: +4 daño +6% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (900g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/arco2.png "></td>
+                        <td class="tier2 ">Arco del Bosque: +9 daño +12% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (2.900g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/arco3.png "></td>
+                        <td class="tier3 ">Arco de Tirador: +16 daño +20% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (5.300g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/arco4.png "></td>
+                        <td class="tier4 ">Trazadora: +25 daño +32% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (7.000g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/arco5.png "></td>
+                        <td class="tier5 ">Diente de Dragón: +36 daño +60% Probabilidad de Crítico</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (12.000g)</button></td>
+                    </tr>
 
-                        <tr id="varitas">
+                    <tr id="varitas">
 
-                            <td><img src="imagenes/vara1.png "></td>
-                            <td class="tier1 ">Varita de Principiante: +40 daño</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Varita de principiante">Comprar (1.100g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/vara2.png "></td>
-                            <td class="tier2 ">Bastón de Guerra: +76 daño</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Baston de guerra">Comprar (3.000g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/vara3.png "></td>
-                            <td class="tier3 ">Vara del Caos: +112 daño</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Vara del caos">Comprar (5.400g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/vara4.png "></td>
-                            <td class="tier4 ">Bastón Infernal: +179 daño</td>
-                            <td><button type="submit" class="btn btn-warning txt " value="Baston infernal">Comprar (7.300g)</button></td>
-                        </tr>
-                        <tr>
-                            <!-- <th scope="row ">3</th> -->
-                            <td><img src="imagenes/vara5.png "></td>
-                            <td class="tier5 ">Remanente Helado: +230 daño</td>
-                            <td><button type="submit " class="btn btn-warning txt " value="Remanente helado">Comprar (13.000g)</button></td>
-                        </tr>
-                         
-                    </tbody>
-               </form>
+                        <td><img src="imagenes/vara1.png "></td>
+                        <td class="tier1 ">Varita de Principiante: +7 daño</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (1.100g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/vara2.png "></td>
+                        <td class="tier2 ">Bastón de Guerra: +13 daño</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (3.000g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/vara3.png "></td>
+                        <td class="tier3 ">Vara del Caos: +22 daño</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (5.400g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/vara4.png "></td>
+                        <td class="tier4 ">Bastón Infernal: +30 daño</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (7.300g)</button></td>
+                    </tr>
+                    <tr>
+                        <!-- <th scope="row ">3</th> -->
+                        <td><img src="imagenes/vara5.png "></td>
+                        <td class="tier5 ">Remanente Helado: +49 daño</td>
+                        <td><button type="button " class="btn btn-warning txt ">Comprar (13.000g)</button></td>
+                    </tr>
+                </tbody>
             </table>
 
         </div>
