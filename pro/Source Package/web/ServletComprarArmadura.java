@@ -21,17 +21,84 @@ public class ServletComprarArmadura extends HttpServlet{
      @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
             HttpSession sesion = request.getSession();
-            String nombre = request.getParameter("nombre");
-            String nick = (String)sesion.getAttribute("Nick");
             ConexionSQL gestion = new ConexionSQL();
-            PrintWriter out = response.getWriter();
-            int id = gestion.checkId(nick);
-              if(gestion.createWarrior(id,nick,nombre)){
-                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/index/index.jsp");
-                   
-                    
-                }else{
-                    response.sendRedirect("http://localhost:8080/ProyectoWebFinal/crearpersonaje/crearpersonaje.jsp");
+            String armadura = request.getParameter("boton");
+            String login = (String)sesion.getAttribute("Nick");
+            int id = gestion.checkId(login);
+            String clase = gestion.checkClase(id);
+            System.out.println(login);
+            Integer coste = 0;
+            Integer dinero = (Integer) sesion.getAttribute("Dinero");
+            System.out.println(armadura);
+            if(clase == "Guerrero"){
+                switch(armadura){
+                    case "Escudo basico":
+                        coste = 900;
+                        break;
+                    case "Espada robusto":
+                        coste = 1700;
+                        break;
+                    case "Espada de plata":
+                        coste = 3500;
+                        break;
+                    case "Gran escudo":
+                        coste = 5100;
+                        break;
+                    case "Coraza inmortal":
+                        coste = 9000;
+                        break;
                 }
+            }
+            if(clase == "Guerrero"){
+                switch(armadura){
+                 case "Zapatillas basicas":
+                    coste = 800;
+                    break;
+                case "Zapatillas practicas":
+                    coste = 1600;
+                    break;
+                case "Chanclas del viento":
+                    coste = 5300;
+                    break;
+                case "Viento aureo":
+                    coste = 7200;
+                    break;
+                case "Paso ligero":
+                    coste = 9900;
+                    break;
+                }
+            }
+            if(clase == "Guerrero"){
+                switch(armadura){
+                case "Gorro de principiante":
+                    coste = 1100;
+                    break;
+                case "Gorro de mago":
+                    coste = 3000;
+                    break;
+                case "Gorro maldito":
+                    coste = 5400;
+                    break;
+                case "Tiara infernal":
+                    coste = 8300;
+                    break;
+                case "Corona del fin":
+                    coste = 16000;
+                    break;
+                }
+            }
+            System.out.println(coste);
+             if(login == null && dinero == null){
+                 response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/tienda/tienda.jsp");
+             }else if (login != null && dinero >= coste){
+                 String personaje = gestion.checkPersonaje(id);
+                 gestion.gastarDinero(personaje, dinero-coste);
+                 gestion.cambioArmadura(personaje, armadura);
+                 sesion.setAttribute("Dinero", dinero-coste);
+                 response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/tienda/tienda.jsp");
+
+                 
+             }
+            
         }
 }

@@ -63,15 +63,13 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campoUsuario)
-                            .addComponent(campoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
-                        .addContainerGap(161, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(campoUsuario)
+                        .addComponent(campoPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(loginButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(loginButton)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,7 +83,7 @@ public class Login extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(campoPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(loginButton)
                 .addGap(53, 53, 53))
         );
@@ -107,7 +105,8 @@ public class Login extends javax.swing.JFrame {
 		gestion.validarUsuario(usu);
 		
 		if(gestion.validarUsuario(usu)) {
-                        String personaje =gestion.Personaje(user);
+                        int id =gestion.obtenerIdCuenta(user);
+                        String personaje =gestion.Personaje(id);
 			JOptionPane.showMessageDialog(null, "Bienvenido/a: \n " + personaje);
 			charSelect select = new charSelect();
                         select.lblPersonaje.setText(personaje);

@@ -18,7 +18,9 @@ import java.util.Random;
  */
 public class Jugador {
      String nombre;
+     String clase;
     int hp;
+    int mp;
     int def;
     int atq;
     int eva;
@@ -45,12 +47,28 @@ public class Jugador {
         this.nombre = nombre;
     }
 
+    public String getClase() {
+        return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
+    }
+    
     public int getHp() {
         return hp;
     }
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+    public int getMp() {
+        return mp;
+    }
+
+    public void setMp(int mp) {
+        this.mp = mp;
     }
 
     public int getAtq() {
@@ -114,7 +132,7 @@ public class Jugador {
  //TO STRING
     @Override
     public String toString() {
-        return this.nombre + "lvl: " + this.nivel+ "\nHP: " + this.hp + "\ndaño: " + atq +
+        return this.nombre + " lvl: " + this.nivel+ "\n Clase: "+ clase +"\nHP: " + this.hp + "MP: " + this.mp + "\ndaño: " + atq +
                 "\ndef: " + def;
     }
     // METODOS
@@ -122,56 +140,73 @@ public class Jugador {
     public int calcAtacar(Jugador jugador, Monstruo enemigo){
         Random number = new Random();
         Random probCrit = new Random();
-        int crit = probCrit.nextInt(100) + 1;
+        Random probEva = new Random ();
+        int rEva = probEva.nextInt(100) + 1;
+        int rCrit = probCrit.nextInt(100) + 1;
         int N = jugador.getNivel();
         int A = jugador.getAtq();
         int D = enemigo.getDef();
         int V = number.nextInt(15)+85;
-        int Tc = jugador.getTcrit();
-        int Dc = jugador.getDcrit();
-        double calc =  0.01 * V * ((( 3 * A ) *N) / (6 * D) + 2) ;
+        int eva = enemigo.getEva();
+        int tc = jugador.getTcrit();
+        int dc = jugador.getDcrit();
+        double calc =  0.01 * V * ((( 8 * A ) *N) / D) ;
         int res = (int) calc;
         
-        if(crit <= Tc){
-            res = res * Dcrit;
-            return res;
-        }else {
-            return res;
+        if(rCrit <= tc){
+            res = res * (dc / 100 );
+            
         }
+        if (rEva <= eva){
+            res = 0;
+        }
+        return res;
     }
-     public int calcSkill(Jugador jugador, Monstruo enemigo) {
-        int E = 1;
-        Random random = new Random();
-        int V = random.nextInt(15) + 85;
-        int N = 2;
-        int A = 20;
-        int P = 1;//Entre 1 y 5 según sistema de estrellas
-        int D = 10;
-        double skill = 0.02 * E * V * ((((5 * N) * A * P)/(10 * D))+3);
-        int dmg = (int) skill;
-        System.out.println(dmg);
-        return dmg;
+     public int calcSkill(Jugador jugador, Monstruo enemigo, int p) {
+         Random number = new Random();
+        Random probCrit = new Random();
+        Random probEva = new Random ();
+        int rEva = probEva.nextInt(100) + 1;
+        int rCrit = probCrit.nextInt(100) + 1;
+        int N = jugador.getNivel();
+        int A = jugador.getAtq();
+        int D = enemigo.getDef();
+        int V = number.nextInt(15)+85;
+        int eva = enemigo.getEva();
+        int tc = jugador.getTcrit();
+        int dc = jugador.getDcrit();
+        double calc =  0.01 * V * ((( 7 * (A * p)) * N) /  D ) ;
+        int res = (int) calc;
+        
+        if(rCrit <= tc){
+            res = res * (dc / 100 );
+            
+        }
+        if (rEva <= eva){
+            res = 0;
+        }
+        return res;
     }
      //SUBIDAS DE NIVEL
    public int levelUp(int exp){
        
                if(exp >= 30 && exp < 100){
                    return 2;
-               }else if(exp >= 100 && exp < 240){
+               }else if(exp >= 100 && exp < 500){
                    return 3;
-               }else if(exp >= 240  && exp < 500){
-                   return 4;
                }else if(exp >= 500  && exp < 940){
-                   return 5;
+                   return 4;
                }else if(exp >= 940  && exp < 1830){
-                   return 6;
+                   return 5;
                }else if(exp >= 1830  && exp < 3200){
-                   return 7;
+                   return 6;
                }else if(exp >= 3200  && exp < 5780){
-                   return 8;
+                   return 7;
                }else if(exp >= 5780  && exp < 11080){
-                   return 9;
+                   return 8;
                }else if(exp >= 11080  && exp < 24900){
+                   return 9;
+               }else if(exp >= 24900  && exp < 52300){
                    return 10;
                }else  if(exp >= 24900){
                    return 11;
@@ -180,67 +215,162 @@ public class Jugador {
                }  
              
        }
-        public void equipo(Jugador jugador, String arma){
-        
+    //FIN DE LEVELUP
+  
+    //METODOS PARA SUBIR STATS SI TIENE EQUIPADO UN ARMA O ARMADURA
+        public void equipo(Jugador jugador, String arma, String armadura){
+            //ARMADURAS
+            switch(armadura){
+                case "Nada":
+                    jugador.setDef(jugador.getDef() + 0);
+                    jugador.setHp(jugador.getHp() +0);                
+                    jugador.setEva(jugador.getEva() + 0);
+                    break;
+                    //ARMADURA GUERRERO
+                case "Escudo basico":
+                    jugador.setDef(jugador.getDef() + 14);
+                    jugador.setHp(jugador.getHp() +100);                
+                    jugador.setEva(jugador.getEva() + 2);        
+                    break;
+                case "Escudo robusto":
+                    jugador.setDef(jugador.getDef() + 33);
+                    jugador.setHp(jugador.getHp() +470);                
+                    jugador.setEva(jugador.getEva() + 3);         
+                    break;
+                case "Escudo de plata":
+                    jugador.setDef(jugador.getDef() + 68);
+                    jugador.setHp(jugador.getHp() +810);                
+                    jugador.setEva(jugador.getEva() + 4);           
+                    break;
+                case "Gran escudo":
+                    jugador.setDef(jugador.getDef() + 94);
+                    jugador.setHp(jugador.getHp() + 1300);                
+                    jugador.setEva(jugador.getEva() + 4);           
+                    break;
+                case "Coraza inmortal":
+                    jugador.setDef(jugador.getDef() + 140);
+                    jugador.setHp(jugador.getHp() +2520);                
+                    jugador.setEva(jugador.getEva() + 5);             
+                    break;
+                    //ARMADURA ARQUERO
+                case "Zapatillas basicas":
+                    jugador.setDef(jugador.getDef() + 8);
+                    jugador.setHp(jugador.getHp() +50);                
+                    jugador.setEva(jugador.getEva() + 3);           
+                    break;
+                case "Zapatillas practicas":
+                    jugador.setDef(jugador.getDef() + 18);
+                    jugador.setHp(jugador.getHp() +140);                
+                    jugador.setEva(jugador.getEva() + 6);              
+                    break;
+                case "Chanclas del viento":
+                    jugador.setDef(jugador.getDef() + 31);
+                    jugador.setHp(jugador.getHp() +210);                
+                    jugador.setEva(jugador.getEva() + 9);               
+                    break;
+                case "Viento aureo":
+                    jugador.setDef(jugador.getDef() + 68);
+                    jugador.setHp(jugador.getHp() +370);                
+                    jugador.setEva(jugador.getEva() + 12);               
+                    break;
+                case "Paso ligero":
+                    jugador.setDef(jugador.getDef() + 92);
+                    jugador.setHp(jugador.getHp() +560);                
+                    jugador.setEva(jugador.getEva() + 15);             
+                    break;
+                    //ARMADURA DE MAGO
+                case "Gorro de principiante":
+                    jugador.setDef(jugador.getDef() + 5);
+                    jugador.setHp(jugador.getHp() +20);                
+                    jugador.setEva(jugador.getEva() + 2);
+                    break;
+                case "Gorro de mago":
+                    jugador.setDef(jugador.getDef() + 15);
+                    jugador.setHp(jugador.getHp() + 60);                
+                    jugador.setEva(jugador.getEva() + 5);
+                    break;
+                case "Gorro maldito":
+                    jugador.setDef(jugador.getDef() + 28);
+                    jugador.setHp(jugador.getHp() +120);                
+                    jugador.setEva(jugador.getEva() + 6);
+                    break;
+                case "Tiara infernal":
+                    jugador.setDef(jugador.getDef() + 49);
+                    jugador.setHp(jugador.getHp() +200);                
+                    jugador.setEva(jugador.getEva() + 7);
+                    break;
+                case "Corona del fin":
+                    jugador.setDef(jugador.getDef() + 65);
+                    jugador.setHp(jugador.getHp() +400);                
+                    jugador.setEva(jugador.getEva() + 10);
+                    break;
+                default:
+                    System.out.println("No tiene armadura");
+                    break;
+        }
+            //ARMAS
             switch(arma){
                 case "Nada":
                     jugador.setAtq(jugador.getAtq() + 0);
                     jugador.setTcrit(0);                
                     break;
+                    //ARMA GUERRERO
                 case "Espada de madera":
-                    jugador.setAtq(jugador.getAtq() + 4);
+                    jugador.setAtq(jugador.getAtq() + 20);
                     jugador.setTcrit(4);                
                     break;
                 case "Espada de plata":
-                    jugador.setAtq(jugador.getAtq() + 8);
+                    jugador.setAtq(jugador.getAtq() + 44);
                     jugador.setTcrit(8);                
                     break;
                 case "Espada de hierro rojo":
-                    jugador.setAtq(jugador.getAtq() + 14);
+                    jugador.setAtq(jugador.getAtq() + 67);
                     jugador.setTcrit(15);                
                     break;
                 case "Espada de los antiguos":
-                    jugador.setAtq(jugador.getAtq() + 21);
+                    jugador.setAtq(jugador.getAtq() + 100);
                     jugador.setTcrit(25);                
                     break;
                 case "Sangre nocturna":
-                    jugador.setAtq(jugador.getAtq() + 32);
+                    jugador.setAtq(jugador.getAtq() + 140);
                     jugador.setTcrit(40);                
                     break;
+                    //ARMA ARQUERO
                 case "Arco de practica":
-                    jugador.setAtq(jugador.getAtq() + 4);
+                    jugador.setAtq(jugador.getAtq() + 30);
                     jugador.setTcrit(6);                
                     break;
                 case "Arco del bosque":
-                    jugador.setAtq(jugador.getAtq() + 9);
+                    jugador.setAtq(jugador.getAtq() + 58);
                     jugador.setTcrit(12);                
                     break;
                 case "Arco de tirador":
-                    jugador.setAtq(jugador.getAtq() + 16);
+                    jugador.setAtq(jugador.getAtq() + 92);
                     jugador.setTcrit(20);                
                     break;
                 case "Trazadora":
-                    jugador.setAtq(jugador.getAtq() + 25);
+                    jugador.setAtq(jugador.getAtq() + 150);
                     jugador.setTcrit(32);                
                     break;
                 case "Diente de dragon":
-                    jugador.setAtq(jugador.getAtq() + 36);
+                    jugador.setAtq(jugador.getAtq() + 190);
                     jugador.setTcrit(60);                
                     break;
+                    //ARMA DE MAGO
                 case "Varita de principiante":
-                    jugador.setAtq(jugador.getAtq() + 7);
+                    jugador.setAtq(jugador.getAtq() + 40);
                     break;
                 case "Baston de guerra":
-                    jugador.setAtq(jugador.getAtq() + 13);
+                    jugador.setAtq(jugador.getAtq() + 76);
                     break;
                 case "Vara del caos":
-                    jugador.setAtq(jugador.getAtq() + 22);
+                    jugador.setAtq(jugador.getAtq() + 112);
                     break;
                 case "Baston infernal":
-                    jugador.setAtq(jugador.getAtq() + 30);
+                    jugador.setAtq(jugador.getAtq() + 179);
                     break;
                 case "Remanente helado":
-                    jugador.setAtq(jugador.getAtq() + 49);
+                    jugador.setAtq(jugador.getAtq() + 230);
                     break;
                 default:
                     System.out.println("No tiene arma");
