@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <link rel="stylesheet" href="CssRanking/estiloRanking.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Yellowtail&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Shadowlands</h1>
+         <h2 class="ranking">Rankings</h2>
+        <table class="indice">
+    <td class="nada">
+       
+        <h3>Ranking de Nivel por selección de clase</h3>
+        <form name="ranking" action="rankingNiveles.jsp">
+         <select id="tipos" name="tipos" size="4">
+         <option value="" selected> Selecciona opción</option>
+         <option value="Todos">Todos</option>
+         <option value="Guerrero">Guerreros</option>
+         <option value="Arquero">Arqueros</option>
+         <option value="Mago">Magos</option></select>
+            <br>
+            <input type="submit" value="Consultar">
+            </form>
+        
+            </td>
+            
+            <td class="nada">
+            
+        <h3>Ranking por selección de item</h3>
+        <form name="otrosRankings" action="otrosRankings.jsp">
+         <select id="otros" name="otros" size="4">
+         <option value="" selected> Selecciona opción</option>
+         <option value="Dinero">Oro</option>
+         <option value="Piso">Piso</option>
+         <option value="Dmg">Daño</option>
+         <option value="Hp">Vida</option>
+         </select>
+            <br>
+            <input type="submit" value="Consultar">
+        </form>
+    </td>
+        </table>
+    </body>
+</html>
