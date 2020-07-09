@@ -25,11 +25,14 @@ public class AdminBorrarCuenta extends HttpServlet {
        
         String aborrar = request.getParameter("borrar");
          ConexionSQL gestion = new ConexionSQL();
-         if (gestion.adminBorrarCuenta(aborrar)){
-                System.out.println("bien");
-            }else{
-                System.out.println("mal");
-            }
+         int id = gestion.checkId(aborrar);
+         if(gestion.checkIdPersonaje(id) >= 1){
+             gestion.borrarPersonaje(id);
+             gestion.adminBorrarCuenta(aborrar);
+             
+         }else{
+             gestion.adminBorrarCuenta(aborrar);
+         }
             response.sendRedirect("/ProyectoWebFinal/Boostrap/vistaadmin/vistaAdmin.html");
         }
     

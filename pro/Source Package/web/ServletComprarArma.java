@@ -26,16 +26,19 @@ public class ServletComprarArma extends HttpServlet{
             String arma = request.getParameter("boton");
             String login = (String)sesion.getAttribute("Nick");
             int id = gestion.checkId(login);
+            String armaComprada = "Nada";
             String clase = gestion.checkClase(id);
             System.out.println(login);
             Integer coste = 0;
+            System.out.println(clase);
             Integer dinero = (Integer) sesion.getAttribute("Dinero");
             System.out.println(arma);
-            if(clase == "Guerrero"){
+            if(clase.equals("Guerrero")){
                 switch(arma){
                 
                 case "Espada de madera":
                     coste = 1000;
+                    armaComprada = "Espada de madera";
                     break;
                 case "Espada de plata":
                     coste = 3000;
@@ -51,7 +54,7 @@ public class ServletComprarArma extends HttpServlet{
                     break;
                 }
             }
-            if(clase == "Arquero"){
+            if(clase.equals("Arquero")){
                 switch(arma){
                     case "Arco de practica":
                         coste = 900;
@@ -70,7 +73,7 @@ public class ServletComprarArma extends HttpServlet{
                         break;
                   }
             }
-            if(clase == "Mago"){
+            if(clase.equals("Mago")){
                  switch(arma){    
                 case "Varita del principiante":
                     coste = 1100;
@@ -91,12 +94,16 @@ public class ServletComprarArma extends HttpServlet{
             }
             System.out.println(coste);
              if(login == null && dinero == null){
+                 System.out.println("mal");
                  response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/tienda/tienda.jsp");
              }else if (login != null && dinero >= coste){
+                 System.out.println("bien");
                  String personaje = gestion.checkPersonaje(id);
                  gestion.gastarDinero(personaje, dinero-coste);
-                 gestion.cambioArma(personaje, arma);
-                 sesion.setAttribute("Dinero", dinero-coste);
+                 gestion.cambioArma(personaje, armaComprada);
+                 int tot = dinero - coste;
+                 sesion.setAttribute("Dinero", tot);
+                 System.out.println("ultrabien" + dinero + coste + sesion.getAttribute("Dinero"));
                  response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/tienda/tienda.jsp");
 
                  

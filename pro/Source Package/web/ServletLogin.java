@@ -38,7 +38,7 @@ public class ServletLogin extends HttpServlet {
                     
                     System.out.println("Admin: " + admin);
                     
-                    if(gestion.checkPersonaje(id) >= 1){
+                    if(gestion.checkIdPersonaje(id) >= 1){
                        
                         
                         if(gestion.checkRol(usuario).equals("Admin")) {
@@ -53,13 +53,14 @@ public class ServletLogin extends HttpServlet {
                    
                     
                 }else{
-                    System.out.println("login incorrecto");
+                    
                     response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/crearpersonaje/crearpersonaje.jsp");
                     
                 }
                
       
         }else{
+                    System.out.println("login incorrecto");
                     response.sendRedirect("http://localhost:8080/ProyectoWebFinal/Boostrap/login/login.html");
                 }
     }

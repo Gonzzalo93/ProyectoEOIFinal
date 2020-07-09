@@ -241,7 +241,7 @@ public class ConexionSQL {
     }
 
     public String checkClase(int user){
-         String query = "Select Clase from cuentas where cuentas_idCuentas = ? ";
+         String query = "Select Clase from personajes where cuentas_idCuentas = ? ";
          Connection con = null;
          PreparedStatement stmt = null;
          ResultSet rs = null;
@@ -250,16 +250,16 @@ public class ConexionSQL {
             try {
                 con = getConnection();
                 stmt = con.prepareStatement(query);
-        stmt.setInt(1, user);
+                stmt.setInt(1, user);
                 System.out.println("Ejecutando la query: " + query);
 
-        rs = stmt.executeQuery();
+                 rs = stmt.executeQuery();
                 while(rs.next()){
                    clase = rs.getString("Clase");
                 }
-
+                System.out.println("Clase sql" + clase);
                 rs = null;
-        stmt.close();
+                stmt.close();
                 con.close();
                 return clase;
 
@@ -454,9 +454,9 @@ public class ConexionSQL {
          }
       }
       
-      public boolean cambioPassword(String password, String nuevapass) {
+      public boolean cambioPassword(String password, String nick) {
          try {
-             String insertQuery = "UPDATE cuentas SET Password = ? WHERE (Nick = ? )";
+             String insertQuery = "UPDATE cuentas SET Password = ? WHERE Nick = ? ";
              Connection con = null;
              PreparedStatement stmt = null;
              int rows = 0;
@@ -465,8 +465,7 @@ public class ConexionSQL {
              con = getConnection();
              stmt = con.prepareStatement(insertQuery);
              stmt.setString(1, password);
-             stmt.setString(2, nuevapass);
-             System.out.println(" sesion vale: " + nuevapass);
+             stmt.setString(2, nick);
              System.out.println("Ejecutando la query: " + insertQuery);
              
              rows = stmt.executeUpdate();
@@ -519,7 +518,7 @@ public class ConexionSQL {
           
          try {
              
-             String insertQuery = "DELETE FROM cuentas WHERE (Nick = ? )";
+             String insertQuery = "DELETE FROM cuentas WHERE Nick = ? ";
              Connection con = null;
              PreparedStatement stmt = null;
              int rows = 0;
@@ -543,6 +542,37 @@ public class ConexionSQL {
              return false;
          }
       }
+       
+       
+       public boolean borrarPersonaje(int borrarpj) {
+          
+         try {
+             
+             String insertQuery = "DELETE FROM personajes WHERE cuentas_idCuentas = ? ";
+             Connection con = null;
+             PreparedStatement stmt = null;
+             int rows = 0;
+             
+             
+             con = getConnection();
+             stmt = con.prepareStatement(insertQuery);
+             stmt.setInt (1 , borrarpj);
+             System.out.println("borranick vale.. :D --> " + borrarpj);
+             System.out.println("Ejecutando la query: " + insertQuery);
+             
+             rows = stmt.executeUpdate();
+             System.out.println("Registros afectados: " + rows);
+             
+             stmt.close();
+             con.close();
+             
+             return true;
+         } catch (SQLException ex) {
+            
+             return false;
+         }
+      }
+       
        /* "INSERT INTO personajes(cuentas_idCuentas, Nombre,Clase, Dmg,"
                 + "CritDmg, Def, Evasion, Hp, Mp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"; */
        

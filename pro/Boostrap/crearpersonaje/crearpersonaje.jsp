@@ -117,7 +117,7 @@
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 estilo">Valeroso guerrero, sientes el fervor de la batalla, cuentas con gran salud y defensa, tendrás una ofensiva pobre, sin embargo cuenta con daño critico. El mejor arma es la defensa.</p>
                                     <p class="mb-5 estilo">Parámetros iniciales:</p>
-                                    <p class="mb-5 colorWarr estilo"><strong>Salud: 140 Ataque: 8 Defensa: 14 Evasión: 3% Daño Critico:150%</strong></p>
+                                    <p class="mb-5 colorWarr estilo"><strong>Salud: 240  MP: 70 Ataque: 15 Defensa: 23 Evasión: 3% Daño Critico:150%</strong></p>
                                     <form method="post" action="/ProyectoWebFinal/ServletCrearWarrior" onsubmit="return checkCharacter()">
                                     <input type="text" placeholder="Escriba el nombre de su personaje" name="nombre" id="guerrero">
                                         <button type="submit" class="btn btn-primary">
@@ -155,7 +155,7 @@
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 estilo">El poder de la sabiduria. Elige bien tus cartas, heroe, este camino lleva a la puerta de un gran poder, sin embargo, no tendrás mucha resistencia. Todo poder conlleva una gran responsabilidad.</p>
                                     <p class="mb-5 estilo">Parámetros iniciales:</p>
-                                    <p class="mb-5 estilo colorMago"><strong>Salud: 70 Ataque: 22 Defensa: 6 Evasion: 5%</strong></p>
+                                    <p class="mb-5 estilo colorMago"><strong>Salud: 110 MP:200 Ataque: 31 Defensa: 13 Evasion: 5%</strong></p>
                                     <form method="post" action="/ProyectoWebFinal/ServletCrearMago" onsubmit="return checkCharacter()">
                                     <input type="text" placeholder="Escriba el nombre" name="nombre" id="mago">
                                         <button type="submit" class="btn btn-primary">
@@ -193,7 +193,7 @@
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-5 estilo">Heroe, te moveras con destreza, y los enemigos no podran tan si quiera alcanzarte con sus golpes, agil y audaz en el combate. Si ese es tu estilo, este es tu camino.</p>
                                     <p class="mb-5 estilo">Parámetros iniciales:</p>
-                                    <p class="mb-5 estilo colorArcher"><strong>Salud: 100 Ataque: 15 Defensa: 9 Evasión: 10% Daño Critico: 200%</strong></p>
+                                    <p class="mb-5 estilo colorArcher"><strong>Salud: 160 MP:120 Ataque: 25 Defensa: 18 Evasión: 10% Daño Critico: 200%</strong></p>
                                     <form method="post" action="/ProyectoWebFinal/ServletCrearArquero" onsubmit="return checkCharacter()">
                                     <input type="text" placeholder="Escriba el nombre de su personaje" name="nombre" id="arquero">
                                         <button type="submit" class="btn btn-primary">

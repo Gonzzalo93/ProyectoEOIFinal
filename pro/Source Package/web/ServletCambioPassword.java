@@ -22,10 +22,10 @@ import javax.swing.JOptionPane;
 public class ServletCambioPassword extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
          HttpSession sesion = request.getSession();
-         String nuevapass = (String)sesion.getAttribute("Nick");
+         String nick = (String)sesion.getAttribute("Nick");
          String pass = request.getParameter("nnpassword");
             ConexionSQL gestion = new ConexionSQL();
-            if (gestion.cambioPassword(pass,nuevapass)){
+            if (gestion.cambioPassword(pass,nick)){
                 System.out.println("bien");
             }else{
                 System.out.println("mal");

@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon/favicon-16x16.png">
     <link rel="manifest" href="../../../favicon/site.webmanifest">
-    <link rel="mask-icon" href="../../../favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="mask-icon" href="../../../favicon/safari-pinned-tab.svg">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <title>Shadowlands - Eliminar cuenta</title>
@@ -21,15 +21,16 @@
     <div class="p-3 mb-2 bg-primary text-white">Servicios
         <h1>Eliminar cuenta</h1>
     </div>
+    <form method="post" action="/ProyectoWebFinal/ServletBorrarCuenta">
     <label for="exampleFormControlInput1">No queremos que te vayas, pero es tu decisión :c</label>
     <div class="col-3">
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Escriba 'CONFIRMAR'">
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Escriba 'CONFIRMAR'" value="confirmar">
     </div>
     <div class="form-check">
         <input type="checkbox" class="form-check-input check" id="exampleCheck1">
         <label class="form-check-label texto" for="exampleCheck1">Entiendo que esta acción es irreversible</label>
     </div>
-    <button type="submit " class="btn btn btn-danger posicion ">Eliminar Cuenta</button>
+    <button type="submit" class="btn btn btn-danger posicion ">Eliminar Cuenta</button>
     </form>
 
     <p class="mt-5 mb-5 ml-3 text-muted ">&copy; 2020-2021</p>
