@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <link href="css/vistaAdmin.css" rel="stylesheet" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon/favicon-16x16.png">
+    <link rel="manifest" href="../favicon/site.webmanifest">
+    <link rel="mask-icon" href="../favicon/safari-pinned-tab.svg">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Shadowlands - Panel Admin</title>
+</head>
+
+<body>
+<div class="p-3 mb-2 text-white color">Vista de Admin
+        <h1>Opciones de Gestión</h1>
+    </div>
+    <div class="row">
+    <div class="col-lg">
+    <form method="post" action="/ProyectoWebFinal/AdminServletCambiarNombre">
+    <label for="exampleFormControlInput1" class="ajuste">Cambiar el Nombre de Cuenta</label>
+     <input type="text" class="form-control tamano" name="nombre_antiguo" placeholder="Nombre de Cuenta Antiguo">
+     <input type="text" class="form-control tamano" name="nombre_nuevo" placeholder="Nuevo Nombre para la Cuenta">
+     <button type="submit" class="btn btn-primary posicion colorboton">Cambio de Nombre</button>
+    </form>
+    </div>
+    
+    <div class="col-lg">
+      <form method="post" action="/ProyectoWebFinal/AdminServletCambiarPassword">
+    <label for="exampleFormControlInput1" class="ajuste">Cambiar la Contraseña a un Usuario</label>
+     <input type="text" class="form-control tamano" name="cuenta_pass" placeholder="Nombre de la Cuenta">
+     <input type="text" class="form-control tamano" name="pass_nueva" placeholder="Contraseña Nueva">
+     <button type="submit" class="btn btn-primary posicion colorboton">Cambio de Contraseña</button>
+    </form>
+    </div>
+    
+    <div class="col-lg">
+    <form method="post" action="/ProyectoWebFinal/AdminServletEmail">
+    <label for="exampleFormControlInput1" class="ajuste">Cambiar el Email a un Usuario</label>
+     <input type="text" class="form-control tamano" name="cuenta_email" placeholder="Nombre de la Cuenta">
+     <input type="email" class="form-control tamano" name="email_nuevo" placeholder="Email Nuevo">
+     <button type="submit" class="btn btn-primary posicion colorboton">Cambio de Email</button>
+    </form>
+    </div>
+    
+    </div>
+    
+    <div class="row">
+        <div class="col-lg">
+    <form method="post" action="/ProyectoWebFinal/AdminBorrarCuenta">
+    <label for="exampleFormControlInput1" class="ajuste">Borrar la Cuenta</label>
+     <input type="text" class="form-control tamano" name="borrar" placeholder="Nombre usuario">
+     <button type="submit" class="btn btn-primary posicion colorboton">Borrar</button>
+    </form>
+        </div>
+        <div class="col-lg">
+    <form method="post" action="/ProyectoWebFinal/AdminEstadisticas">
+    <label for="exampleFormControlInput1" class="ajuste">Modificar Estadisticas</label>
+    <input type="text" class="form-control tamano" name="ncuenta" placeholder="Nombre de la Cuenta">
+     <input type="text" class="form-control tamano" name="npersonaje" placeholder="Nombre del Personaje">
+     <input type="text" class="form-control tamano" name="clase" placeholder="Clase">
+     <input type="text" class="form-control tamano" name="oro" placeholder="Cantidad de Oro">
+     <input type="text" class="form-control tamano" name="nivel" placeholder="Nivel">
+     <input type="text" class="form-control tamano" name="torre" placeholder="Progreso de la Torre">
+     <input type="text" class="form-control tamano" name="hp" placeholder="HP">
+     <input type="text" class="form-control tamano" name="mp" placeholder="MP">
+     <input type="text" class="form-control tamano" name="atq" placeholder="Ataque">
+     <input type="text" class="form-control tamano" name="def" placeholder="Defensa">
+     <input type="text" class="form-control tamano" name="eva" placeholder="Evasión">
+     
+     <button type="submit" class="btn btn-primary posicion colorboton">Aceptar</button>
+    </form>
+        </div> 
+         <div class="col-lg">
+    <form method="post" action="placeholder">
+    <label for="exampleFormControlInput1" class="ajuste">Cambiar de Pais</label>
+    <input type="text" class="form-control tamano" name="cuenta_pais" placeholder="Nombre de la Cuenta">
+     <input type="text" class="form-control tamano" name="pais" placeholder="Pais">
+     <button type="submit" class="btn btn-primary posicion colorboton">Cambiar</button>
+    </form>
+        </div>
+        
+        
+    </div>
+</body>
+
+</html>
