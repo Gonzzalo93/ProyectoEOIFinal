@@ -706,7 +706,7 @@ pre code {
 .col-lg-9,
 .col-lg-8,
 .col-lg-7,
-.col-lg-6,
+
 .col-lg-5,
 .col-lg-4,
 .col-lg-3,
@@ -757,6 +757,13 @@ pre code {
     width: 100%;
     padding-right: 0.75rem;
     padding-left: 0.75rem;
+}
+.col-lg-6{
+    position: relative;
+    width: 80% !important;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    padding-bottom: 100px !important;
 }
 
 .col-md-4 {
