@@ -5,9 +5,17 @@
 --%>
 
 <% 
-    HttpSession sesion = request.getSession();
-             String login = (String)sesion.getAttribute("Nick");
-             int dinero = (Integer) sesion.getAttribute("Dinero");
+  HttpSession sesion = request.getSession();
+         
+           String login = (String)sesion.getAttribute("Nick");
+          Integer dinero = (Integer) sesion.getAttribute("Dinero");
+       if( login == null){
+           login = "invitado";
+           
+       }
+          if (dinero == null){
+              dinero = 0;
+          }
 
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -72,93 +80,93 @@
 
 
                         <td><img src="imagenes/escudo1.png "></td>
-                        <td class="tier1 ">Escudo básico: +10 HP +5 Defensa </td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (900g)</button></td>
+                        <td class="tier1 ">Escudo básico: +100 HP +14 Defensa +2 Evasion </td>
+                        <td><button type="button " class="btn btn-warning txt " value="Escudo basico">Comprar (900g)</button></td>
                     </tr>
                     <tr>
 
                         <td><img src="imagenes/escudo2.png "></td>
-                        <td class="tier2 ">Escudo robusto: +20 HP +9 Defensa</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (1.700g)</button></td>
+                        <td class="tier2 ">Escudo robusto: +470 HP +33 Defensa +3 Evasion </td>
+                        <td><button type="button " class="btn btn-warning txt " value="Escudo robusto">Comprar (1.700g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/escudo3.png "></td>
-                        <td class="tier3 ">Escudo de Plata: +50 HP +13 Defensa </td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (3.500g)</button></td>
+                        <td class="tier3 ">Escudo de Plata: +810 HP +33 Defensa +4 Evasion </td>
+                        <td><button type="button " class="btn btn-warning txt " value="Escudo de plata">Comprar (3.500g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/escudo4.png "></td>
-                        <td class="tier4 ">Gran Escudo: +80 HP +18 Defensa</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (5.100g)</button></td>
+                        <td class="tier4 ">Gran Escudo: +1300 HP +68 Defensa +4 Evasion </td>
+                        <td><button type="button " class="btn btn-warning txt " value="Gran escudo">Comprar (5.100g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/escudo5.png "></td>
-                        <td class="tier5 ">Coraza Inmortal: +170 HP +28 Defensa</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (9.000g)</button></td>
+                        <td class="tier5 ">Coraza Inmortal: +2520 HP +140 Defensa +5 Evasion </td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Coraza inmortal">Comprar (9.000g)</button></td>
                     </tr>
                     <tr id="arcos">
 
                         <td><img src="imagenes/botas1.png "></td>
-                        <td class="tier1 ">Zapatillas básicas: +3 HP +5 Evasión</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (800g)</button></td>
+                        <td class="tier1 ">Zapatillas básicas: +50 HP +8 Defensa +3 Evasion </td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Zapatillas basicas">Comprar (800g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/botas2.png "></td>
-                        <td class="tier2 ">Zapatillas prácticas: +8 HP +9 Evasión</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (1.600g)</button></td>
+                        <td class="tier2 ">Zapatillas prácticas: +140 HP +18 Defensa +6 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Zapatillas practicas">Comprar (1.600g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/botas3.png "></td>
-                        <td class="tier3 ">Chanclas Corredor del Viento: +13 HP +13 Evasión</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (5.300g)</button></td>
+                        <td class="tier3 ">Chanclas del Viento: +210 HP +31 Defensa +9 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Chanclas del viento">Comprar (5.300g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/botas4.png "></td>
-                        <td class="tier4 ">Viento aúreo: +20 HP + 17 Evasión</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (7.200g)</button></td>
+                        <td class="tier4 ">Viento aúreo: +370 HP +68 Defensa +12 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Viento aureo">Comprar (7.200g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/botas5.png "></td>
-                        <td class="tier5 ">Paso Ligero: +25 HP + 25 Evasión</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (9.900g)</button></td>
+                        <td class="tier5 ">Paso Ligero: +560 HP +92 Defensa +15 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Paso ligero">Comprar (9.900g)</button></td>
                     </tr>
 
                     <tr id="varitas">
 
                         <td><img src="imagenes/gorro1.png "></td>
-                        <td class="tier1 ">Gorro de Principiante: +3 HP + 3 Daño</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (1.100g)</button></td>
+                        <td class="tier1 ">Gorro de Principiante: +20 HP +5 Defensa +2 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Gorro de principiante">Comprar (1.100g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/gorro2.png "></td>
-                        <td class="tier2 ">Gorro de Mago Experto: +5 HP + 5 Daño</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (3.000g)</button></td>
+                        <td class="tier2 ">Gorro de Mago: +60 HP +15 Defensa +5 Evasion/td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Gorro de mago">Comprar (3.000g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/gorro3.png "></td>
-                        <td class="tier3 ">Gorro Maldito: +8 HP + 8 Daño</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (5.400g)</button></td>
+                        <td class="tier3 ">Gorro Maldito: +120 HP +28 Defensa +6 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Gorro maldito">Comprar (5.400g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/gorro4.png "></td>
-                        <td class="tier4 ">Tiara Infernal: +11 HP + 10 Daño</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (8.300g)</button></td>
+                        <td class="tier4 ">Tiara Infernal: +200 HP +49 Defensa +7 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Tiara infernal">Comprar (8.300g)</button></td>
                     </tr>
                     <tr>
                         <!-- <th scope="row ">3</th> -->
                         <td><img src="imagenes/gorro5.png "></td>
-                        <td class="tier5 ">Corona de Destrucción: +15 HP + 14 Daño</td>
-                        <td><button type="button " class="btn btn-warning txt ">Comprar (16.000g)</button></td>
+                        <td class="tier5 ">Corona del Fin: +400 HP +65 Defensa +10 Evasion</td>
+                        <td><button type="submit" class="btn btn-warning txt " value="Corona del fin">Comprar (16.000g)</button></td>
                     </tr>
                 </tbody>
             </table>

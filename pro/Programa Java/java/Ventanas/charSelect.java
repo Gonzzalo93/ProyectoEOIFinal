@@ -32,44 +32,247 @@ String personaje;
         Mapa1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         lblPersonaje = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        Mapa2 = new javax.swing.JButton();
+        Mapa3 = new javax.swing.JButton();
+        Mapa4 = new javax.swing.JButton();
+        Mapa5 = new javax.swing.JButton();
+        Mapa6 = new javax.swing.JButton();
+        Mapa7 = new javax.swing.JButton();
+        Mapa8 = new javax.swing.JButton();
+        Mapa9 = new javax.swing.JButton();
+        Mapa10 = new javax.swing.JButton();
+        Mapa11 = new javax.swing.JButton();
+        Mapa12 = new javax.swing.JButton();
+        Mapa13 = new javax.swing.JButton();
+        Mapa14 = new javax.swing.JButton();
+        Mapa15 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Mapa1.setText("Mapa1");
+        Mapa1.setText("Piso 1");
+        Mapa1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Mapa1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         Mapa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Mapa1ActionPerformed(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 16)); // NOI18N
         jLabel1.setText("Bienvenido,");
+
+        lblPersonaje.setFont(new java.awt.Font("DejaVu Sans Condensed", 1, 16)); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("DialogInput", 1, 16)); // NOI18N
+        jLabel2.setText("SELECCIONA PISO ");
+
+        Mapa2.setText("Piso 2");
+        Mapa2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Mapa2.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa2ActionPerformed(evt);
+            }
+        });
+
+        Mapa3.setText("Piso 3");
+        Mapa3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Mapa3.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa3ActionPerformed(evt);
+            }
+        });
+
+        Mapa4.setText("Piso 4");
+        Mapa4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Mapa4.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa4ActionPerformed(evt);
+            }
+        });
+
+        Mapa5.setText("Piso 5");
+        Mapa5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Mapa5.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa5ActionPerformed(evt);
+            }
+        });
+
+        Mapa6.setText("Piso 6");
+        Mapa6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Mapa6.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa6ActionPerformed(evt);
+            }
+        });
+
+        Mapa7.setText("Piso 7");
+        Mapa7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa7.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa7ActionPerformed(evt);
+            }
+        });
+
+        Mapa8.setText("Piso 8");
+        Mapa8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa8.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa8ActionPerformed(evt);
+            }
+        });
+
+        Mapa9.setText("Piso 9");
+        Mapa9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa9.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa9ActionPerformed(evt);
+            }
+        });
+
+        Mapa10.setText("Piso 10");
+        Mapa10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa10.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa10ActionPerformed(evt);
+            }
+        });
+
+        Mapa11.setText("Piso 11");
+        Mapa11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa11.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa11ActionPerformed(evt);
+            }
+        });
+
+        Mapa12.setText("Piso 13");
+        Mapa12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa12.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa12ActionPerformed(evt);
+            }
+        });
+
+        Mapa13.setText("Piso 12");
+        Mapa13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa13.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa13ActionPerformed(evt);
+            }
+        });
+
+        Mapa14.setText("Piso 14");
+        Mapa14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa14.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa14ActionPerformed(evt);
+            }
+        });
+
+        Mapa15.setText("Piso 15");
+        Mapa15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Mapa15.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        Mapa15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Mapa15ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(Mapa1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblPersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Mapa1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Mapa2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(14, 14, 14)
+                            .addComponent(Mapa3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Mapa4, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Mapa5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(169, 169, 169)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(48, 48, 48)
+                            .addComponent(lblPersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(199, 199, 199)
+                            .addComponent(Mapa15, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(Mapa8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Mapa9)
+                            .addGap(14, 14, 14)
+                            .addComponent(Mapa10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(12, 12, 12)
+                            .addComponent(Mapa11, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(Mapa13))))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Mapa6, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Mapa12))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Mapa14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Mapa7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPersonaje, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(Mapa1)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Mapa2)
+                    .addComponent(Mapa1)
+                    .addComponent(Mapa3)
+                    .addComponent(Mapa4)
+                    .addComponent(Mapa5)
+                    .addComponent(Mapa6)
+                    .addComponent(Mapa7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Mapa8)
+                        .addComponent(Mapa9)
+                        .addComponent(Mapa10))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Mapa12)
+                        .addComponent(Mapa13)
+                        .addComponent(Mapa14)
+                        .addComponent(Mapa11)))
+                .addGap(41, 41, 41)
+                .addComponent(Mapa15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         pack();
@@ -77,17 +280,144 @@ String personaje;
 
     private void Mapa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa1ActionPerformed
         // TODO add your handling code here:
-         Mapa1 ventana = new Mapa1 ();
-         ventana.Pers.setText(personaje);
+         Piso1 ventana = new Piso1 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
          ventana.setVisible(true);
          this.dispose();
     }//GEN-LAST:event_Mapa1ActionPerformed
 
+    private void Mapa2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa2ActionPerformed
+        // TODO add your handling code here:
+        Piso2 ventana = new Piso2 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa2ActionPerformed
+
+    private void Mapa3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa3ActionPerformed
+        // TODO add your handling code here:
+         Piso3 ventana = new Piso3 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa3ActionPerformed
+
+    private void Mapa4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa4ActionPerformed
+        // TODO add your handling code here:
+         Piso4 ventana = new Piso4 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa4ActionPerformed
+
+    private void Mapa5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa5ActionPerformed
+        // TODO add your handling code here:
+         Piso5 ventana = new Piso5 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa5ActionPerformed
+
+    private void Mapa6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa6ActionPerformed
+        // TODO add your handling code here:
+         Piso6 ventana = new Piso6 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa6ActionPerformed
+
+    private void Mapa7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa7ActionPerformed
+        // TODO add your handling code here:
+         Piso7 ventana = new Piso7 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa7ActionPerformed
+
+    private void Mapa8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa8ActionPerformed
+        // TODO add your handling code here:
+         Piso8 ventana = new Piso8 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa8ActionPerformed
+
+    private void Mapa9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa9ActionPerformed
+        // TODO add your handling code here:
+         Piso9 ventana = new Piso9 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa9ActionPerformed
+
+    private void Mapa10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa10ActionPerformed
+        // TODO add your handling code here:
+         Piso10 ventana = new Piso10 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa10ActionPerformed
+
+    private void Mapa11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa11ActionPerformed
+        // TODO add your handling code here:
+         Piso11 ventana = new Piso11 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa11ActionPerformed
+
+    private void Mapa12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa12ActionPerformed
+        // TODO add your handling code here:
+         Piso12 ventana = new Piso12 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa12ActionPerformed
+
+    private void Mapa13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa13ActionPerformed
+        // TODO add your handling code here:
+         Piso13 ventana = new Piso13 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa13ActionPerformed
+
+    private void Mapa14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa14ActionPerformed
+        // TODO add your handling code here:
+         Piso14 ventana = new Piso14 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa14ActionPerformed
+
+    private void Mapa15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Mapa15ActionPerformed
+        // TODO add your handling code here:
+         Piso15 ventana = new Piso15 ();
+         ventana.Pers.setText(this.lblPersonaje.getText());
+         ventana.setVisible(true);
+         this.dispose();
+    }//GEN-LAST:event_Mapa15ActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Mapa1;
+    private javax.swing.JButton Mapa10;
+    private javax.swing.JButton Mapa11;
+    private javax.swing.JButton Mapa12;
+    private javax.swing.JButton Mapa13;
+    private javax.swing.JButton Mapa14;
+    private javax.swing.JButton Mapa15;
+    private javax.swing.JButton Mapa2;
+    private javax.swing.JButton Mapa3;
+    private javax.swing.JButton Mapa4;
+    private javax.swing.JButton Mapa5;
+    private javax.swing.JButton Mapa6;
+    private javax.swing.JButton Mapa7;
+    private javax.swing.JButton Mapa8;
+    private javax.swing.JButton Mapa9;
     private java.awt.Canvas canvas1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     public javax.swing.JLabel lblPersonaje;
     // End of variables declaration//GEN-END:variables
 }

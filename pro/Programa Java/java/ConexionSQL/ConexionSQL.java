@@ -79,9 +79,10 @@ public class ConexionSQL {
         return false;
     }
      }
-     // METODOS SET
-      public String Personaje(String nick){
-         String ComprobacionQuery = "SELECT Nombre from personajes WHERE cuentas_Nick=?";
+     // METODOS SET && GET
+     //Saca el nombre
+      public String Personaje(int id){
+         String ComprobacionQuery = "select Nombre from personajes where cuentas_idCuentas = ?";
          Connection con = null;
          PreparedStatement pst = null;
          ResultSet rs = null;
@@ -92,7 +93,7 @@ public class ConexionSQL {
         //inicializamos Statement
         pst=con.prepareStatement(ComprobacionQuery);
 
-        pst.setString(1, nick);
+        pst.setInt(1, id);
         //Ejecutamos y recumeramos la consulta SQL
 
         rs= pst.executeQuery();
@@ -118,7 +119,7 @@ public class ConexionSQL {
     }
       }
        
-    
+    //Saca el dmg del personaje
     public int obtenerDmg(String jugador){
         String ComprobacionQuery= "SELECT Dmg from personajes WHERE Nombre=?";
          Connection con = null;
@@ -156,7 +157,8 @@ public class ConexionSQL {
              System.out.println("No me coge el daño");
         return dmg;
     }
-     }    
+     }
+    //Saca la defensa del personaje
      public int obtenerDef(String jugador){
         String ComprobacionQuery= "SELECT Def from personajes WHERE Nombre=?";
          Connection con = null;
@@ -194,7 +196,8 @@ public class ConexionSQL {
              System.out.println("No me coge el daño");
         return def;
     }
-     }    
+     }
+     //Saca la vida del personaje
      public int obtenerHp(String jugador) {
         String ComprobacionQuery= "SELECT Hp from personajes WHERE Nombre=?";
          Connection con = null;
@@ -231,7 +234,8 @@ public class ConexionSQL {
             e.printStackTrace();
             return hp;
         }
-     }   
+     }
+     //Saca la exp del personaje
       public int obtenerExp(String jugador) {
         String ComprobacionQuery= "SELECT Experiencia from personajes WHERE Nombre=?";
          Connection con = null;
@@ -269,7 +273,7 @@ public class ConexionSQL {
         return exp;
     }
   }
-      
+      //Saca el nivel del personaje
        public int obtenerLvl(String jugador) {
         String ComprobacionQuery= "SELECT Nivel from personajes WHERE Nombre=?";
          Connection con = null;
@@ -307,13 +311,12 @@ public class ConexionSQL {
         return lvl;
     }
   }
-       
-       public String obtenerArma(String jugador) {
-        String ComprobacionQuery= "SELECT ArmaEquipada from personajes WHERE Nombre=?";
+       //SETEAR TODA LA INFO
+        public Jugador setJugador(Jugador player, String jugador) {
+        String ComprobacionQuery= "SELECT * from personajes WHERE Nombre=?";
          Connection con = null;
          PreparedStatement pst = null;
          ResultSet rs = null;
-         String arma = null;
          try {
         con = getConnection();
       
@@ -328,26 +331,216 @@ public class ConexionSQL {
 
         //recorremos el cursor con los datos obtenidos
             while (rs.next()) {
-            arma = (rs.getString("ArmaEquipada"));
+            player.setNombre(rs.getString("Nombre"));
+            player.setNivel(rs.getInt("Nivel"));
+            player.setClase(rs.getString("Clase"));
+            player.setAtq(rs.getInt("Dmg"));
+            player.setDcrit(rs.getInt("CritDmg"));
+            player.setDef(rs.getInt("Def"));
+            player.setEva(rs.getInt("Evasion"));
+            player.setHp(rs.getInt("Hp"));
+            player.setMp(rs.getInt("Mp"));
+           
+             
           
 
         }
             pst.close();
             rs.close();
             con.close();
-           return arma;
+           return player;
 
         
 
     } catch (SQLException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
-        return arma;
+        return player;
     }
   }
        
        
-// FIN METODOS DE SETS
+       //Saca el arma que tiene el personaje
+       public String obtenerArma(String jugador) {
+             String ComprobacionQuery= "SELECT ArmaEquipada from personajes WHERE Nombre=?";
+             Connection con = null;
+             PreparedStatement pst = null;
+             ResultSet rs = null;
+             String arma = null;
+             try {
+            con = getConnection();
+
+            //syso "onectado a".concat(url);
+            //inicializamos Statement
+            pst=con.prepareStatement(ComprobacionQuery);
+
+            //Ejecutamos y recumeramos la consulta SQL
+            pst.setString(1, jugador);
+            rs= pst.executeQuery();
+
+
+            //recorremos el cursor con los datos obtenidos
+                while (rs.next()) {
+                arma = (rs.getString("ArmaEquipada"));
+
+
+            }
+                pst.close();
+                rs.close();
+                con.close();
+               return arma;
+
+
+
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return arma;
+            }
+          }
+        public String obtenerArmadura(String jugador) {
+             String ComprobacionQuery= "SELECT ArmaduraEquipada from personajes WHERE Nombre=?";
+             Connection con = null;
+             PreparedStatement pst = null;
+             ResultSet rs = null;
+             String armadura = null;
+             try {
+            con = getConnection();
+
+            //syso "onectado a".concat(url);
+            //inicializamos Statement
+            pst=con.prepareStatement(ComprobacionQuery);
+
+            //Ejecutamos y recumeramos la consulta SQL
+            pst.setString(1, jugador);
+            rs= pst.executeQuery();
+
+
+            //recorremos el cursor con los datos obtenidos
+                while (rs.next()) {
+                armadura = (rs.getString("ArmaduraEquipada"));
+
+
+            }
+                pst.close();
+                rs.close();
+                con.close();
+               return armadura;
+
+
+
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return armadura;
+            }
+          }
+        //Saca el id del personaje
+        public int obtenerIdPersonaje(String jugador) {
+             String ComprobacionQuery= "SELECT idPersonajes from personajes WHERE Nombre=?";
+             Connection con = null;
+             PreparedStatement pst = null;
+             ResultSet rs = null;
+             int id = 0;
+             try {
+            con = getConnection();
+
+            //syso "onectado a".concat(url);
+            //inicializamos Statement
+            pst=con.prepareStatement(ComprobacionQuery);
+
+            //Ejecutamos y recumeramos la consulta SQL
+            pst.setString(1, jugador);
+            rs= pst.executeQuery();
+
+
+            //recorremos el cursor con los datos obtenidos
+                while (rs.next()) {
+                id = (rs.getInt("idPersonajes"));
+
+
+            }
+                pst.close();
+                rs.close();
+                con.close();
+                return id;
+
+
+
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return id;
+            }
+          }  
+         public int obtenerIdCuenta(String jugador) {
+             String ComprobacionQuery= "SELECT idCuentas from cuentas WHERE Nick=?";
+             Connection con = null;
+             PreparedStatement pst = null;
+             ResultSet rs = null;
+             int id = 0;
+             try {
+            con = getConnection();
+
+            //syso "onectado a".concat(url);
+            //inicializamos Statement
+            pst=con.prepareStatement(ComprobacionQuery);
+
+            //Ejecutamos y recumeramos la consulta SQL
+            pst.setString(1, jugador);
+            rs= pst.executeQuery();
+
+
+            //recorremos el cursor con los datos obtenidos
+                while (rs.next()) {
+                id = (rs.getInt("idCuentas"));
+
+
+            }
+                pst.close();
+                rs.close();
+                con.close();
+                return id;
+
+
+
+            } catch (SQLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                return id;
+            }
+          }  
+        //Actualiza el oro del personaje
+        public void lootGold(String jugador, int dinero) {
+            String ComprobacionQuery= "update personajes SET Dinero = ? where Nombre = ?";
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try {
+                con = getConnection();
+
+               //inicializamos Statement
+               pst=con.prepareStatement(ComprobacionQuery);
+
+               //Ejecutamos y recumeramos la consulta SQL
+               pst.setInt(1, dinero);
+               pst.setString(2, jugador);
+               pst.executeUpdate();
+
+                 pst.close();
+                 con.close();
+
+           }   catch (SQLException ex) {
+                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+                   System.out.println("Problemas al settear el dinero en la base de datos");
+
+               }
+
+        } 
+        
+      
+       
+// FIN METODOS DE SETS && GETS
       
         public int sumarExp(String jugador, int exp, int exp2) {
         String ComprobacionQuery= "update personajes SET Experiencia = ? where Nombre = ?";
@@ -408,12 +601,20 @@ public class ConexionSQL {
 
     } 
         
-         public void subirDmg(String jugador, Jugador player) {
-            String ComprobacionQuery= "update personajes SET Dmg = ? where Nombre = ?";
+         public void subirStatsWarr(String jugador, Jugador player) {
+            String ComprobacionQuery= "UPDATE personajes SET Dmg = ?, Def = ?, Evasion = ?, Hp = ?, Mp = ? WHERE ( Nombre = ?)";
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
+            double newmp = player.getMp() * 1.3;
+            double newhp = player.getHp() * 1.5;
+            double neweva = player.getEva() * 1.2;
+            double newdef = player.getDef() * 1.7;
             double newdmg = player.getAtq() * 1.3;
+            int mp = (int) newmp;
+            int hp = (int) newhp;
+            int eva = (int) neweva;
+            int def = (int) newdef;
             int dmg = (int) newdmg;
             try {
             con = getConnection();
@@ -424,7 +625,176 @@ public class ConexionSQL {
 
            //Ejecutamos y recumeramos la consulta SQL
            pst.setInt(1, dmg);
-           pst.setString(2, jugador);
+           pst.setInt(2, def);
+           pst.setInt(3, eva);
+           pst.setInt(4, hp);
+           pst.setInt(5, mp);
+           pst.setString(6, jugador);
+           pst.executeUpdate();
+
+             pst.close();
+             con.close();
+
+           }   catch (SQLException ex) {
+                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+                   System.out.println("Fallo al subir los parametros al subir de nivel");
+               }
+            
+    } 
+           public void subirStatsMago(String jugador, Jugador player) {
+            String ComprobacionQuery= "UPDATE personajes SET Dmg = ?, Def = ?, Evasion = ?, Hp = ?, Mp = ? WHERE ( Nombre = ?)";
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            double newmp = player.getMp() * 1.7;
+            double newhp = player.getHp() * 1.2;
+            double neweva = player.getEva() * 1.2;
+            double newdef = player.getDef() * 1.3;
+            double newdmg = player.getAtq() * 1.5;
+            int mp = (int) newmp;
+            int hp = (int) newhp;
+            int eva = (int) neweva;
+            int def = (int) newdef;
+            int dmg = (int) newdmg;
+            try {
+            con = getConnection();
+
+           //syso "onectado a".concat(url);
+           //inicializamos Statement
+           pst=con.prepareStatement(ComprobacionQuery);
+
+           //Ejecutamos y recumeramos la consulta SQL
+           pst.setInt(1, dmg);
+           pst.setInt(2, def);
+           pst.setInt(3, eva);
+           pst.setInt(4, hp);
+           pst.setInt(5, mp);
+           pst.setString(6, jugador);
+           pst.executeUpdate();
+
+             pst.close();
+             con.close();
+
+           }   catch (SQLException ex) {
+                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+                   System.out.println("Fallo al subir los parametros al subir de nivel");
+               }
+            
+    } 
+           
+           public void subirStatsArcher(String jugador, Jugador player) {
+            String ComprobacionQuery= "UPDATE personajes SET Dmg = ?, Def = ?, Evasion = ?, Hp = ?, Mp = ? WHERE ( Nombre = ?)";
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            double newmp = player.getMp() * 1.5;
+            double newhp = player.getHp() * 1.5;
+            double neweva = player.getEva() * 1.6;
+            double newdef = player.getDef() * 1.5;
+            double newdmg = player.getAtq() * 1.5;
+            int mp = (int) newmp;
+            int hp = (int) newhp;
+            int eva = (int) neweva;
+            int def = (int) newdef;
+            int dmg = (int) newdmg;
+            try {
+            con = getConnection();
+
+           //syso "onectado a".concat(url);
+           //inicializamos Statement
+           pst=con.prepareStatement(ComprobacionQuery);
+
+           //Ejecutamos y recumeramos la consulta SQL
+           pst.setInt(1, dmg);
+           pst.setInt(2, def);
+           pst.setInt(3, eva);
+           pst.setInt(4, hp);
+           pst.setInt(5, mp);
+           pst.setString(6, jugador);
+           pst.executeUpdate();
+
+             pst.close();
+             con.close();
+
+           }   catch (SQLException ex) {
+                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+                   System.out.println("Fallo al subir los parametros al subir de nivel");
+               }
+            
+    } 
+    //FIN METODOS DE SUBIR STATS AL SUBIR DE LVL
+    //AÑADIR HABILIDADES A CADA CLASE
+        public void newWarrSkillSQL(int id,String nombre, int dmg, int heal, int costemp, String elemento){
+            String query = "INSERT INTO habilidades(personajes_idPersonajes, NombreHabilidad, SkillDmg, SkillHeal, CosteMp, Elemento) VALUES (?, ?, ?, ?, ?, ?)";
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try {
+            con = getConnection();
+      
+            //inicializamos Statement
+            pst=con.prepareStatement(query);
+
+            pst.setInt(1, id);
+            pst.setString(2, nombre);
+            pst.setInt(3, dmg);
+            pst.setInt(4, heal);
+            pst.setInt(5, costemp);
+            pst.setString(6, elemento);
+            pst.executeUpdate();
+
+            pst.close();
+            con.close();
+
+        }   catch (SQLException ex) {
+                Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+                   
+            }
+        }
+        public void newMageSkillSQL(int id,String nombre, int dmg, int heal, int costemp, String elemento){
+            String query = "INSERT INTO habilidades(personajes_idPersonajes, NombreHabilidad, SkillDmg, SkillHeal, CosteMp, Elemento) VALUES (?, ?, ?, ?, ?, ?)";
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try {
+            con = getConnection();
+
+            //inicializamos Statement
+            pst=con.prepareStatement(query);
+
+            pst.setInt(1, id);
+            pst.setString(2, nombre);
+            pst.setInt(3, dmg);
+            pst.setInt(4, heal);
+            pst.setInt(5, costemp);
+            pst.setString(6, elemento);
+            pst.executeUpdate();
+
+             pst.close();
+             con.close();
+
+           }   catch (SQLException ex) {
+                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
+
+               }
+           }
+        public void newArcherSkillSQL(int id,String nombre, int dmg, int heal, int costemp, String elemento){
+            String query = "INSERT INTO habilidades(personajes_idPersonajes, NombreHabilidad, SkillDmg, SkillHeal, CosteMp, Elemento) VALUES (?, ?, ?, ?, ?, ?)";
+            Connection con = null;
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            try {
+            con = getConnection();
+
+           //inicializamos Statement
+           pst=con.prepareStatement(query);
+
+           pst.setInt(1, id);
+           pst.setString(2, nombre);
+           pst.setInt(3, dmg);
+           pst.setInt(4, heal);
+           pst.setInt(5, costemp);
+           pst.setString(6, elemento);
            pst.executeUpdate();
 
              pst.close();
@@ -434,69 +804,8 @@ public class ConexionSQL {
                    Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
 
                }
-            
-    } 
-         public void subirDef(String jugador, Jugador player) {
-         String ComprobacionQuery= "update personajes SET Def = ? where Nombre = ?";
-         Connection con = null;
-         PreparedStatement pst = null;
-         ResultSet rs = null;
-         double newdef = player.getDef() * 1.8;
-         int def = (int) newdef;
-         try {
-         con = getConnection();
-      
-        //syso "onectado a".concat(url);
-        //inicializamos Statement
-        pst=con.prepareStatement(ComprobacionQuery);
-
-        //Ejecutamos y recumeramos la consulta SQL
-        pst.setInt(1, def);
-        pst.setString(2, jugador);
-        pst.executeUpdate();
-
-          pst.close();
-          con.close();
-          
-        }   catch (SQLException ex) {
-                Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
-                   
-            }
-            
-    }  
-        public void subirHp(String jugador, Jugador player) {
-         String ComprobacionQuery= "update personajes SET Hp = ? where Nombre = ?";
-         Connection con = null;
-         PreparedStatement pst = null;
-         ResultSet rs = null;
-         double newhp = player.getHp() * 1.4;
-         int hp = (int) newhp;
-         try {
-         con = getConnection();
-      
-        //inicializamos Statement
-        pst=con.prepareStatement(ComprobacionQuery);
-
-        //Ejecutamos y recumeramos la consulta SQL
-        pst.setInt(1, hp);
-        pst.setString(2, jugador);
-        pst.executeUpdate();
-
-          pst.close();
-          con.close();
-          
-        }   catch (SQLException ex) {
-                Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
-                   
-            }
-            
-    } 
+        }
+    //FIN AÑADIR HABILIDADES A CADA CLASE    
+        
+       
 }//Fin clase
-
-
-
-
-
-
-    
-
