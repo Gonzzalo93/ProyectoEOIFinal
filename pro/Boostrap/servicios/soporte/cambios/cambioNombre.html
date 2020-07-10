@@ -19,12 +19,15 @@
 
 <body>
     <form method="post" action="/ProyectoWebFinal/ServletCambioNombre">
+         <div class="p-3 mb-2 bg-primary text-white">Servicios
+             <h1>Cambio de Nombre</h1>
+         </div>
         <label for="exampleFormControlInput1">Inserta el Nuevo Nombre</label>
         <div class="col-3">
-            <input type="text" class="form-control" id="exampleFormControlInput1" name="nnick" placeholder="Nuevo Nombre">
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="nombre1" placeholder="Nuevo Nombre">
         </div>
         <div class="col-3">
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Repita el Nuevo Nombre">
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Repita el Nuevo Nombre" name="nombre2">
         </div>
         <div class="form-check">
             <input type="checkbox" class="form-check-input check" id="exampleCheck1">
@@ -32,6 +35,19 @@
         </div>
         <button type="submit" class="btn btn-primary posicion">Cambio de Nombre</button>
     </form>
+
+    <p class="mt-5 mb-5  ml-3 text-muted">&copy; 2020-2021</p>
+      <script type="text/javascript">
+        function check(form){
+        var nombre1 = form.nombre1.value;
+        var nombre2 = form.nombre2.value;
+
+        if (nombre1 !== nombre2) {
+            alert("El nombre no es la misma que 'repetir nombre'");
+            return false;
+        }
+    }
+    </script>
 
     <p class="mt-5 mb-5  ml-3 text-muted">&copy; 2020-2021</p>
 </body>

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package web;
+
 import ConexionSQL.ConexionSQL;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,25 +18,22 @@ import javax.swing.JOptionPane;
  *
  * @author Propietario
  */
-
-@WebServlet("/ServletCambioPassword") 
-public class ServletCambioPassword extends HttpServlet{
+@WebServlet("/AdminBorrarCuenta")
+public class AdminBorrarCuenta extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
-         HttpSession sesion = request.getSession();
-         String nick = (String)sesion.getAttribute("Nick");
-         String pass = request.getParameter("nnpassword");
-            ConexionSQL gestion = new ConexionSQL();
-            if (gestion.cambioPassword(pass,nick)){
-                System.out.println("bien");
-            }else{
-                System.out.println("mal");
-            }
-            response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
-            
+       
+        String aborrar = request.getParameter("borrar");
+         ConexionSQL gestion = new ConexionSQL();
+         int id = gestion.checkId(aborrar);
+         if(gestion.checkIdPersonaje(id) >= 1){
+             gestion.borrarPersonaje(id);
+             gestion.adminBorrarCuenta(aborrar);
+             
+         }else{
+             gestion.adminBorrarCuenta(aborrar);
+         }
+            response.sendRedirect("/ProyectoWebFinal/Boostrap/vistaadmin/vistaAdmin.html");
         }
-        
-        
-        
-    }
     
-
+}

@@ -28,6 +28,7 @@ public class Jugador {
     int Dcrit;
     int exp;
     int nivel;
+    int dinero;
     public Jugador(){
        // CONSTRUCTORES
     }
@@ -128,6 +129,14 @@ public class Jugador {
         this.Dcrit = Dcrit;
     }
 
+    public int getDinero() {
+        return dinero;
+    }
+
+    public void setDinero(int dinero) {
+        this.dinero = dinero;
+    }
+
     
  //TO STRING
     @Override
@@ -150,7 +159,7 @@ public class Jugador {
         int eva = enemigo.getEva();
         int tc = jugador.getTcrit();
         int dc = jugador.getDcrit();
-        double calc =  0.01 * V * ((( 8 * A ) *N) / D) ;
+        double calc =  0.01 * V * ((( 8 * A ) *N) / ( 5 * D)) ;
         int res = (int) calc;
         
         if(rCrit <= tc){
@@ -175,7 +184,7 @@ public class Jugador {
         int eva = enemigo.getEva();
         int tc = jugador.getTcrit();
         int dc = jugador.getDcrit();
-        double calc =  0.01 * V * ((( 7 * (A * p)) * N) /  D ) ;
+        double calc =  0.01 * V * ((( 7 * (A * p)) * N) /  ( 6 * D )) ;
         int res = (int) calc;
         
         if(rCrit <= tc){

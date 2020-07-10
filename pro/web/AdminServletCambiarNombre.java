@@ -17,25 +17,21 @@ import javax.swing.JOptionPane;
  *
  * @author Propietario
  */
-
-@WebServlet("/ServletCambioPassword") 
-public class ServletCambioPassword extends HttpServlet{
+@WebServlet("/AdminServletCambiarNombre")
+public class AdminServletCambiarNombre extends HttpServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
-         HttpSession sesion = request.getSession();
-         String nick = (String)sesion.getAttribute("Nick");
-         String pass = request.getParameter("nnpassword");
-            ConexionSQL gestion = new ConexionSQL();
-            if (gestion.cambioPassword(pass,nick)){
+        String antiguo = request.getParameter("nombre_antiguo");
+        String nuevo = request.getParameter("nombre_nuevo");
+         ConexionSQL gestion = new ConexionSQL();
+         
+           
+            if (gestion.adminNuevoNombre(antiguo,nuevo)){
                 System.out.println("bien");
             }else{
                 System.out.println("mal");
             }
-            response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
-            
-        }
-        
-        
+            response.sendRedirect("/ProyectoWebFinal/Boostrap/vistaadmin/vistaAdmin.html");
         
     }
-    
-
+}

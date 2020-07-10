@@ -63,6 +63,7 @@ ConexionSQL gestion = new ConexionSQL();
         
         //CREAMOS ENEMIGOS
         enemigo.setNombre("Quimera");
+        enemigo.setElemento("Ninguno");
         enemigo.setMaxHp(5600);
         enemigo.setHp(5600);
         enemigo.setNivel(6);
@@ -119,7 +120,7 @@ ConexionSQL gestion = new ConexionSQL();
 
         Consola.setColumns(20);
         Consola.setRows(5);
-        Consola.setText("ENFRENTAMIENTO CONTRA GOBLIN!\n\nEste enfrentamiento es simple, no es un combate\ncomplicado!.\n\nDale a iniciar cuando estes listo.");
+        Consola.setText("\n");
         jScrollPane1.setViewportView(Consola);
 
         CharInfo.setColumns(20);
@@ -134,7 +135,7 @@ ConexionSQL gestion = new ConexionSQL();
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 16)); // NOI18N
-        jLabel1.setText("MAPA 1 - GOBLIN");
+        jLabel1.setText("PISO 5 -QUIMERA");
 
         enemyArea.setColumns(20);
         enemyArea.setRows(5);
@@ -802,7 +803,7 @@ ConexionSQL gestion = new ConexionSQL();
         }else if(enemigo.getHp() <= 0){
             jugador = gestion.setJugador(jugador, this.Pers.getText());
             charSelect ventana = new charSelect();
-            gestion.lootGold(jugador.getNombre(), enemigo.getDinero());
+            gestion.lootGold(jugador, enemigo.getDinero());
             gestion.obtenerExp(jugador.getNombre());
             int expTotal = gestion.sumarExp(jugador.getNombre(),gestion.obtenerExp(jugador.getNombre()) , enemigo.getExp());
             //Sube de nivel

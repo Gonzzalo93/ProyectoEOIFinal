@@ -63,6 +63,7 @@ ConexionSQL gestion = new ConexionSQL();
         
         //CREAMOS ENEMIGOS
         enemigo.setNombre("lobo gris");
+        enemigo.setElemento("Ninguno");
         enemigo.setMaxHp(240);
         enemigo.setHp(240);
         enemigo.setNivel(3);
@@ -119,7 +120,7 @@ ConexionSQL gestion = new ConexionSQL();
 
         Consola.setColumns(20);
         Consola.setRows(5);
-        Consola.setText("ENFRENTAMIENTO CONTRA GOBLIN!\n\nEste enfrentamiento es simple, no es un combate\ncomplicado!.\n\nDale a iniciar cuando estes listo.");
+        Consola.setText("\n");
         jScrollPane1.setViewportView(Consola);
 
         CharInfo.setColumns(20);
@@ -134,7 +135,7 @@ ConexionSQL gestion = new ConexionSQL();
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 16)); // NOI18N
-        jLabel1.setText("MAPA 1 - GOBLIN");
+        jLabel1.setText("MAPA 2 - LOBO GRIS");
 
         enemyArea.setColumns(20);
         enemyArea.setRows(5);
@@ -184,7 +185,7 @@ ConexionSQL gestion = new ConexionSQL();
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Iniciar)
                 .addGap(250, 250, 250))
@@ -802,7 +803,7 @@ ConexionSQL gestion = new ConexionSQL();
         }else if(enemigo.getHp() <= 0){
             jugador = gestion.setJugador(jugador, this.Pers.getText());
             charSelect ventana = new charSelect();
-            gestion.lootGold(jugador.getNombre(), enemigo.getDinero());
+            gestion.lootGold(jugador, enemigo.getDinero());
             gestion.obtenerExp(jugador.getNombre());
             int expTotal = gestion.sumarExp(jugador.getNombre(),gestion.obtenerExp(jugador.getNombre()) , enemigo.getExp());
             //Sube de nivel

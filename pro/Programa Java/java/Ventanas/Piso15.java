@@ -62,7 +62,9 @@ ConexionSQL gestion = new ConexionSQL();
         setLocationRelativeTo(null);
         
         //CREAMOS ENEMIGOS
+        
         enemigo.setNombre("Deliz");
+        enemigo.setElemento("Oscuridad");
         enemigo.setMaxHp(78260);
         enemigo.setHp(78260);
         enemigo.setNivel(11);
@@ -119,7 +121,7 @@ ConexionSQL gestion = new ConexionSQL();
 
         Consola.setColumns(20);
         Consola.setRows(5);
-        Consola.setText("ENFRENTAMIENTO CONTRA GOBLIN!\n\nEste enfrentamiento es simple, no es un combate\ncomplicado!.\n\nDale a iniciar cuando estes listo.");
+        Consola.setText("\n.");
         jScrollPane1.setViewportView(Consola);
 
         CharInfo.setColumns(20);
@@ -134,7 +136,7 @@ ConexionSQL gestion = new ConexionSQL();
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 16)); // NOI18N
-        jLabel1.setText("MAPA 1 - GOBLIN");
+        jLabel1.setText("PISO 15 - DELIZ");
 
         enemyArea.setColumns(20);
         enemyArea.setRows(5);
@@ -296,7 +298,8 @@ ConexionSQL gestion = new ConexionSQL();
         //SETEAMOS AL JUGADOR CON SUS DATOS DE LA BASE DE DATOS
         jugador = gestion.setJugador(jugador, this.Pers.getText());
             //AÑADIMOS EN SUS RESPECTIVAS CONSOLAS, SUS TOSTRING
-            
+            CharInfo.setText(jugador.toString());
+            enemyArea.setText(enemigo.toString());
         String arma = gestion.obtenerArma(personaje);
         String armadura = gestion.obtenerArmadura(personaje);
         jugador.equipo(jugador, arma, armadura);
@@ -476,8 +479,6 @@ ConexionSQL gestion = new ConexionSQL();
                 }
             
              }   
-             CharInfo.setText(jugador.toString());
-            enemyArea.setText(enemigo.toString());
     }//GEN-LAST:event_IniciarActionPerformed
     //  FIN BOTON INICIAR
     // BOTONES DE HABILIDADES
@@ -803,7 +804,7 @@ ConexionSQL gestion = new ConexionSQL();
         }else if(enemigo.getHp() <= 0){
             jugador = gestion.setJugador(jugador, this.Pers.getText());
             charSelect ventana = new charSelect();
-            gestion.lootGold(jugador.getNombre(), enemigo.getDinero());
+            gestion.lootGold(jugador, enemigo.getDinero());
             gestion.obtenerExp(jugador.getNombre());
             int expTotal = gestion.sumarExp(jugador.getNombre(),gestion.obtenerExp(jugador.getNombre()) , enemigo.getExp());
             //Sube de nivel

@@ -43,6 +43,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bahianita&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@300&display=swap" rel="stylesheet">
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -58,7 +59,11 @@
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
+                    <% if(!login.equals("Login")){ %>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" ><%=login%></a></li>
+                    <% }else{ %>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../login/login.html"><%=login%></a></li>
+                    <% } %>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../registro/registro.html">Crear cuenta</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../tienda/tienda.jsp">Tienda de objetos</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Sobre nosotros</a></li>
@@ -101,7 +106,7 @@
                 <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="../index/imagenes/podium.png" alt="" /></div>
                 <div class="col-xl-4 col-lg-5">
                     <div class="featured-text text-center text-lg-left">
-                        <h4><a href="../Ranking/index.html ">Ranking de personajes </a></h4>
+                        <h4><a href="../Ranking/ranking.html ">Ranking de personajes </a></h4>
                     </div>
                 </div>
             </div>
@@ -112,7 +117,7 @@
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <a href="../tienda/tienda.html">
+                                <a href="../tienda/tienda.jsp">
                                     <h4 class="text-white">Acceso a la tienda</h4>
                                 </a>
                                 <p class="mb-0 text-white-50">En la tienda podrás comprar objetos como arcos, varas, arcos y armaduras que te ayudarán a superar los siguiente niveles.</p>
@@ -129,11 +134,19 @@
                     <div class="bg-black text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-right">
-                                <a href="../servicios/servicios.html">
+                                <% if (login.equals("Login")){ %>
+                               
+                                    <h4 class="text-white">Servicios de cuenta y<br> soporte técnico</h4>
+                                     <p class="mb-0 text-white-50">Cambia datos de tu cuenta o contacta con nosotros para comunicarnos posibles fallos o cambios</p>
+                                     <hr class="d-none d-lg-block mb-0 mr-0" />
+                               
+                                <% }else { %>
+                                 <a href="../servicios/servicios.html">
                                     <h4 class="text-white">Servicios de cuenta y<br> soporte técnico</h4>
                                 </a>
                                 <p class="mb-0 text-white-50">Cambia datos de tu cuenta o contacta con nosotros para comunicarnos posibles fallos o cambios</p>
                                 <hr class="d-none d-lg-block mb-0 mr-0" />
+                                <% } %>
                             </div>
                         </div>
                     </div>

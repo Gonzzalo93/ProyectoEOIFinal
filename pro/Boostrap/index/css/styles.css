@@ -10099,8 +10099,7 @@ button.bg-black:focus {
 
 .text-white {
     color: #ababab !important;
-    font-family: 'Alex Brush', cursive;
-    font-family: 'Bahianita', cursive;
+    font-family: 'Grenze Gotisch', cursive !important;
     font-size: 40px!important;
 }
 
@@ -10199,7 +10198,7 @@ a.text-black:focus {
 
 .text-white-50 {
     color: rgba(255, 255, 255, 0.5) !important;
-    font-family: 'Alex Brush', cursive;
+    font-family: 'Grenze Gotisch', cursive !important;
     font-size: 30px
 }
 

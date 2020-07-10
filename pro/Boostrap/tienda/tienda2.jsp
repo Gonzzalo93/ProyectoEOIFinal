@@ -64,8 +64,8 @@
                 <img class="ajustar" src="imagenes/agre.png"></a>
 
         <div class="container">
-
-
+            
+            <h2>Tienda de <%= login%>  y cuentas con <%= dinero %>  oro</h2>   
             <table class="table table-striped table-dark">
                 <thead>
                     <tr>

@@ -340,6 +340,7 @@ public class ConexionSQL {
             player.setEva(rs.getInt("Evasion"));
             player.setHp(rs.getInt("Hp"));
             player.setMp(rs.getInt("Mp"));
+            player.setDinero(rs.getInt("Dinero"));
            
              
           
@@ -511,11 +512,12 @@ public class ConexionSQL {
             }
           }  
         //Actualiza el oro del personaje
-        public void lootGold(String jugador, int dinero) {
+        public void lootGold(Jugador jugador, int dinero) {
             String ComprobacionQuery= "update personajes SET Dinero = ? where Nombre = ?";
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
+            int newdinero = dinero + jugador.getDinero();
             try {
                 con = getConnection();
 
@@ -523,8 +525,8 @@ public class ConexionSQL {
                pst=con.prepareStatement(ComprobacionQuery);
 
                //Ejecutamos y recumeramos la consulta SQL
-               pst.setInt(1, dinero);
-               pst.setString(2, jugador);
+               pst.setInt(1, newdinero);
+               pst.setString(2, jugador.getNombre());
                pst.executeUpdate();
 
                  pst.close();
@@ -607,9 +609,9 @@ public class ConexionSQL {
             PreparedStatement pst = null;
             ResultSet rs = null;
             double newmp = player.getMp() * 1.3;
-            double newhp = player.getHp() * 1.5;
+            double newhp = player.getHp() * 1.6;
             double neweva = player.getEva() * 1.2;
-            double newdef = player.getDef() * 1.7;
+            double newdef = player.getDef() * 1.6;
             double newdmg = player.getAtq() * 1.3;
             int mp = (int) newmp;
             int hp = (int) newhp;
@@ -646,9 +648,9 @@ public class ConexionSQL {
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
-            double newmp = player.getMp() * 1.7;
+            double newmp = player.getMp() * 1.5;
             double newhp = player.getHp() * 1.2;
-            double neweva = player.getEva() * 1.2;
+            double neweva = player.getEva() * 1.1;
             double newdef = player.getDef() * 1.3;
             double newdmg = player.getAtq() * 1.5;
             int mp = (int) newmp;
@@ -687,11 +689,11 @@ public class ConexionSQL {
             Connection con = null;
             PreparedStatement pst = null;
             ResultSet rs = null;
-            double newmp = player.getMp() * 1.5;
-            double newhp = player.getHp() * 1.5;
-            double neweva = player.getEva() * 1.6;
-            double newdef = player.getDef() * 1.5;
-            double newdmg = player.getAtq() * 1.5;
+            double newmp = player.getMp() * 1.2;
+            double newhp = player.getHp() * 1.3;
+            double neweva = player.getEva() * 1.5;
+            double newdef = player.getDef() * 1.3;
+            double newdmg = player.getAtq() * 1.4;
             int mp = (int) newmp;
             int hp = (int) newhp;
             int eva = (int) neweva;
@@ -723,89 +725,6 @@ public class ConexionSQL {
             
     } 
     //FIN METODOS DE SUBIR STATS AL SUBIR DE LVL
-    //AÑADIR HABILIDADES A CADA CLASE
-        public void newWarrSkillSQL(int id,String nombre, int dmg, int heal, int costemp, String elemento){
-            String query = "INSERT INTO habilidades(personajes_idPersonajes, NombreHabilidad, SkillDmg, SkillHeal, CosteMp, Elemento) VALUES (?, ?, ?, ?, ?, ?)";
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try {
-            con = getConnection();
-      
-            //inicializamos Statement
-            pst=con.prepareStatement(query);
-
-            pst.setInt(1, id);
-            pst.setString(2, nombre);
-            pst.setInt(3, dmg);
-            pst.setInt(4, heal);
-            pst.setInt(5, costemp);
-            pst.setString(6, elemento);
-            pst.executeUpdate();
-
-            pst.close();
-            con.close();
-
-        }   catch (SQLException ex) {
-                Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
-                   
-            }
-        }
-        public void newMageSkillSQL(int id,String nombre, int dmg, int heal, int costemp, String elemento){
-            String query = "INSERT INTO habilidades(personajes_idPersonajes, NombreHabilidad, SkillDmg, SkillHeal, CosteMp, Elemento) VALUES (?, ?, ?, ?, ?, ?)";
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try {
-            con = getConnection();
-
-            //inicializamos Statement
-            pst=con.prepareStatement(query);
-
-            pst.setInt(1, id);
-            pst.setString(2, nombre);
-            pst.setInt(3, dmg);
-            pst.setInt(4, heal);
-            pst.setInt(5, costemp);
-            pst.setString(6, elemento);
-            pst.executeUpdate();
-
-             pst.close();
-             con.close();
-
-           }   catch (SQLException ex) {
-                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
-
-               }
-           }
-        public void newArcherSkillSQL(int id,String nombre, int dmg, int heal, int costemp, String elemento){
-            String query = "INSERT INTO habilidades(personajes_idPersonajes, NombreHabilidad, SkillDmg, SkillHeal, CosteMp, Elemento) VALUES (?, ?, ?, ?, ?, ?)";
-            Connection con = null;
-            PreparedStatement pst = null;
-            ResultSet rs = null;
-            try {
-            con = getConnection();
-
-           //inicializamos Statement
-           pst=con.prepareStatement(query);
-
-           pst.setInt(1, id);
-           pst.setString(2, nombre);
-           pst.setInt(3, dmg);
-           pst.setInt(4, heal);
-           pst.setInt(5, costemp);
-           pst.setString(6, elemento);
-           pst.executeUpdate();
-
-             pst.close();
-             con.close();
-
-           }   catch (SQLException ex) {
-                   Logger.getLogger(ConexionSQL.class.getName()).log(Level.SEVERE, null, ex);
-
-               }
-        }
-    //FIN AÑADIR HABILIDADES A CADA CLASE    
         
        
 }//Fin clase

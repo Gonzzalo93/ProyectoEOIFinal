@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package web;
 import ConexionSQL.ConexionSQL;
 import java.io.IOException;
@@ -18,24 +13,22 @@ import javax.swing.JOptionPane;
  * @author Propietario
  */
 
-@WebServlet("/ServletCambioPassword") 
-public class ServletCambioPassword extends HttpServlet{
+@WebServlet("/ServletCambioEmail")
+public class ServletCambioEmail extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
          HttpSession sesion = request.getSession();
-         String nick = (String)sesion.getAttribute("Nick");
-         String pass = request.getParameter("nnpassword");
+         String sesioncorreo = (String)sesion.getAttribute("Nick");
+         String email = request.getParameter("email1");
             ConexionSQL gestion = new ConexionSQL();
-            if (gestion.cambioPassword(pass,nick)){
+            if (gestion.cambioEmail(email,sesioncorreo)){
                 System.out.println("bien");
             }else{
                 System.out.println("mal");
             }
-            response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
             
+            response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
         }
         
         
         
     }
-    
-

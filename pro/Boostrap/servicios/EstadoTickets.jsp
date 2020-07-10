@@ -35,13 +35,12 @@
         <%   
         String url = "jdbc:mysql://localhost:3306/shadowlands?useSSL=false&serverTimezone=UTC";
         String user="root";
-        String pass="asd123!\"·";
-        String insertQuery ="SELECT* FROM consultas WHERE cuentas_idCuentas = ?";
+        String pass="Admin1234";
+        String insertQuery ="SELECT * FROM consultas WHERE cuentas_idCuentas = ?";
         
         
         HttpSession sesion = request.getSession();
-        String Nick="Drizzt";
-        //String Nick = (String)sesion.getAttribute("Nick");
+        String Nick = (String)sesion.getAttribute("Nick");
         ConexionSQL gestion = new ConexionSQL(); 
         int idCuenta= gestion.checkId(Nick);
         
@@ -86,12 +85,12 @@
             <td><strong><% if(rs.getString("Estado").equals("En revision")){
                 %>
            
-                <p id="Rojo"> <%out.print(rs.getString("Estado"));%></p>
+                <p id="Verde"> <%out.print(rs.getString("Estado"));%></p>
                 <%
             }else{
                  %>
                  
-                 <p id="Verde"><% out.print(rs.getString("Estado"));%></p>
+                 <p id="Rojo"><% out.print(rs.getString("Estado"));%></p>
                  <%
                         }
 

@@ -13,29 +13,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
-
 /**
  *
- * @author Santi
+ * @author Propietario
  */
-@WebServlet("/ServletCambioNombre")
-public class ServletCambioNombre  extends HttpServlet{
-          protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
-             HttpSession sesion = request.getSession();
-             String cambioname = (String)sesion.getAttribute("Nick");
-           String usuario = request.getParameter("nombre1");
-           sesion.setAttribute("Nick", usuario);
-            ConexionSQL gestion = new ConexionSQL();
-             
-            if (gestion.nuevoNombre(usuario,cambioname)){
+@WebServlet("/AdminCambioPais")
+public class AdminCambioPais extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException{
+        
+        String cuenta = request.getParameter("cuenta_pais"); 
+        String pais = request.getParameter("pais"); 
+        
+        ConexionSQL gestion = new ConexionSQL();
+         if (gestion.adminCambioPais(cuenta,pais)){
                 System.out.println("bien");
             }else{
                 System.out.println("mal");
             }
-            response.sendRedirect("/ProyectoWebFinal/Boostrap/servicios/servicios.html");
+            response.sendRedirect("/ProyectoWebFinal/Boostrap/vistaadmin/vistaAdmin.html?Hecho.");
         }
     
-
-    
 }
-

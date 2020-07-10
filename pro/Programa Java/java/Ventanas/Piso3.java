@@ -803,7 +803,7 @@ ConexionSQL gestion = new ConexionSQL();
         }else if(enemigo.getHp() <= 0){
             jugador = gestion.setJugador(jugador, this.Pers.getText());
             charSelect ventana = new charSelect();
-            gestion.lootGold(jugador.getNombre(), enemigo.getDinero());
+            gestion.lootGold(jugador, enemigo.getDinero());
             gestion.obtenerExp(jugador.getNombre());
             int expTotal = gestion.sumarExp(jugador.getNombre(),gestion.obtenerExp(jugador.getNombre()) , enemigo.getExp());
             //Sube de nivel

@@ -95,10 +95,10 @@
             }else if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(correo))){
                 alert("No es un correo correcto");
                 return false;
-            }else if(direccion === ""){
+            }else if(direccion.equals("") && direccion.length < 4){
                 alert("Escriba una direccion");
                 return false;
-            }else if(pais === ""){
+            }else if(pais === "" && pais.length < 4){
                 alert("Escriba su pais");
                 return false;
             }else{

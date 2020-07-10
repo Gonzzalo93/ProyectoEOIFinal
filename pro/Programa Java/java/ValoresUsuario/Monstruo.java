@@ -153,7 +153,7 @@ public class Monstruo {
         int eva = jugador.getEva();
         int tc = enemigo.getTcrit();
         int dc = enemigo.getDcrit();
-        double calc =  0.01 * V * ((( 8 * A ) *N) /  D) ;
+        double calc =  0.01 * V * ((( 8 * A ) *N) /  ( 3 * D)) ;
         int res = (int) calc;
         
         if(rCrit <= tc){

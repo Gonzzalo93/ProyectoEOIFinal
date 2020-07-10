@@ -27,7 +27,7 @@
         <%   
         String url = "jdbc:mysql://localhost:3306/shadowlands?useSSL=false&serverTimezone=UTC";
         String user="root";
-        String pass="asd123!\"·";
+        String pass="Admin1234";
         String insertQueryTodos ="SELECT Nombre,Clase, Nivel,Progreso, Dinero,Hp,Dmg,ArmaEquipada FROM personajes order by Nivel desc";
         
         String insertQueryClases ="SELECT Nombre,Clase, Nivel,Progreso,Dinero,Hp,Dmg,ArmaEquipada  FROM personajes WHERE Clase = ? order by Nivel desc";

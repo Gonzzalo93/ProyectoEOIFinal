@@ -115,10 +115,10 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="imagenes/warrior.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5 estilo">Valeroso guerrero, sientes el fervor de la batalla, cuentas con gran salud y defensa, tendrás una ofensiva pobre, sin embargo cuenta con daño critico. El mejor arma es la defensa.</p>
+                                    <p class="mb-5 estilo">Valeroso guerrero, sientes el fervór de la batalla, cuentas con gran salud y defensa, tendrás una ofensiva pobre, sin embargo cuenta con daño critico. El mejor arma es la defensa.</p>
                                     <p class="mb-5 estilo">Parámetros iniciales:</p>
                                     <p class="mb-5 colorWarr estilo"><strong>Salud: 240  MP: 70 Ataque: 15 Defensa: 23 Evasión: 3% Daño Critico:150%</strong></p>
-                                    <form method="post" action="/ProyectoWebFinal/ServletCrearWarrior" onsubmit="return checkCharacter()">
+                                    <form method="post" action="/ProyectoWebFinal/ServletCrearWarrior" onsubmit="return checkWarrior(this)">
                                     <input type="text" placeholder="Escriba el nombre de su personaje" name="nombre" id="guerrero">
                                         <button type="submit" class="btn btn-primary">
                                            Crear
@@ -153,10 +153,10 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="imagenes/mago.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5 estilo">El poder de la sabiduria. Elige bien tus cartas, heroe, este camino lleva a la puerta de un gran poder, sin embargo, no tendrás mucha resistencia. Todo poder conlleva una gran responsabilidad.</p>
+                                    <p class="mb-5 estilo">El poder de la sabiduría. Elige bien tus cartas, héroe, este camino lleva a la puerta de un gran poder, sin embargo, no tendrás mucha resistencia. Todo poder conlleva una gran responsabilidad.</p>
                                     <p class="mb-5 estilo">Parámetros iniciales:</p>
-                                    <p class="mb-5 estilo colorMago"><strong>Salud: 110 MP:200 Ataque: 31 Defensa: 13 Evasion: 5%</strong></p>
-                                    <form method="post" action="/ProyectoWebFinal/ServletCrearMago" onsubmit="return checkCharacter()">
+                                    <p class="mb-5 estilo colorMago"><strong>Salud: 110 MP:200 Ataque: 31 Defensa: 13 Evasión: 5%</strong></p>
+                                    <form method="post" action="/ProyectoWebFinal/ServletCrearMago" onsubmit="return checkMago(this)">
                                     <input type="text" placeholder="Escriba el nombre" name="nombre" id="mago">
                                         <button type="submit" class="btn btn-primary">
                                            Crear
@@ -191,10 +191,10 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="imagenes/archer.png" alt="" />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5 estilo">Heroe, te moveras con destreza, y los enemigos no podran tan si quiera alcanzarte con sus golpes, agil y audaz en el combate. Si ese es tu estilo, este es tu camino.</p>
+                                    <p class="mb-5 estilo">Héroe, te moveras con destreza, y los enemigos no podrán tan si quiera alcanzarte con sus golpes, ágil y audaz en el combate. Si ese es tu estilo, este es tu camino.</p>
                                     <p class="mb-5 estilo">Parámetros iniciales:</p>
                                     <p class="mb-5 estilo colorArcher"><strong>Salud: 160 MP:120 Ataque: 25 Defensa: 18 Evasión: 10% Daño Critico: 200%</strong></p>
-                                    <form method="post" action="/ProyectoWebFinal/ServletCrearArquero" onsubmit="return checkCharacter()">
+                                    <form method="post" action="/ProyectoWebFinal/ServletCrearArquero" onsubmit="return checkArcher(this)">
                                     <input type="text" placeholder="Escriba el nombre de su personaje" name="nombre" id="arquero">
                                         <button type="submit" class="btn btn-primary">
                                            Crear
@@ -219,20 +219,29 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
          <script type="text/javascript">
-             function checkCharacter(){
-                 var arquero = document.getElementById("arquero").value;
+             function checkWarrior(){
                  var guerrero = document.getElementById("guerrero").value;
-                 var mago = document.getElementById("mago").value;
                  
-                 if (arquero === "" || arquero.length <== 4){
+                
+                  if (guerrero === "" || guerrero.length <= 4){
                      alert("Escriba un nombre de personaje con más de 4 caracteres");
                      return false;
                  }
+             }
+              function checkMago(){
+                 var mago = document.getElementById("mago").value;
+                 
+                
                   if (mago === "" || mago.length <= 4){
                      alert("Escriba un nombre de personaje con más de 4 caracteres");
                      return false;
                  }
-                  if (guerrero === "" || guerrero.length <= 4){
+             }
+             function checkArcher(){
+                 var arquero = document.getElementById("arquero").value;
+                 
+                
+                  if (arquero === "" || arquero.length <= 4){
                      alert("Escriba un nombre de personaje con más de 4 caracteres");
                      return false;
                  }
